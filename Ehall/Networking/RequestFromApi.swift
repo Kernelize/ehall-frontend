@@ -81,6 +81,14 @@ func testLogin() async {
     debugPrint(userScore)
 }
 
+func testRequestAuthToken() async -> String {
+    let loginInfo = PasswordLoginInfo(username: "21220513", password: "283511")
+    let school = School.NanjingNormalUniversity
+    
+    let authToken = await requestAuthToken(school, loginInfo)
+    return authToken!.auth_token
+}
+
 func requestAuthToken(_ school: School, _ loginInfo: PasswordLoginInfo) async -> AuthToken? {
     let requestAuthTokenUrl = backendHost + "/api/" + schoolToStr(school) + "/cas_login"
     let response = AF.request(requestAuthTokenUrl, method: .post, parameters: loginInfo, encoder: JSONParameterEncoder.default).serializingDecodable(AuthToken.self)
@@ -114,18 +122,38 @@ func schoolToStr(_ school: School) -> String {
 }
 
 import SwiftUI
+import SwiftData
 
 struct TestView: View {
+    @Environment(\.modelContext) var context
+    @Query(sort: \Expense.authToken) var expenses: [Expense]
+    
     var body: some View {
-        Button("get") {
-            Task {
-                await testLogin()
+        VStack {
+            if expenses.isEmpty {
+                Text("shit")
+            } else {
+                Text(expenses[0].authToken)
+            }
+            Button("get") {
+                Task {
+                    let authToken = await testRequestAuthToken()
+                    let expense = Expense(authToken: authToken)
+                    context.insert(expense)
+                }
             }
         }
     }
 }
 struct Networking_Previews: PreviewProvider {
+    static let container: ModelContainer = {
+        let schema = Schema([Expense.self])
+        let container = try! ModelContainer(for: schema, configurations: [])
+        return container
+    }()
+    
     static var previews: some View {
         TestView()
+            .modelContainer(container)
     }
 }

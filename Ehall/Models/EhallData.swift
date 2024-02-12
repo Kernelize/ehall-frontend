@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 struct EhallData {
     private(set) var userData: UserData
@@ -55,5 +56,14 @@ struct EhallData {
             self.school = school
             self.passwordLoginInfo = passwordLoginInfo
         }
+    }
+}
+
+@Model
+class Expense {
+    var authToken: String
+    
+    init(authToken: String) {
+        self.authToken = authToken
     }
 }
