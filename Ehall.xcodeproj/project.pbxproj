@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362CF7752B7942390024DBED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 362CF7742B7942390024DBED /* Alamofire */; };
+		362CF7782B7942B40024DBED /* RequestFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7772B7942B40024DBED /* RequestFromApi.swift */; };
+		362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF77B2B7A03CE0024DBED /* Sidebar.swift */; };
+		362CF77E2B7A066B0024DBED /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF77D2B7A066B0024DBED /* CourseView.swift */; };
+		362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF77F2B7A10AE0024DBED /* CourseItem.swift */; };
+		362CF7842B7A131E0024DBED /* CoursesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7832B7A131E0024DBED /* CoursesList.swift */; };
+		362CF7862B7A51D90024DBED /* CourseRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7852B7A51D90024DBED /* CourseRow.swift */; };
+		362CF7892B7A5B650024DBED /* EhallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7882B7A5B650024DBED /* EhallData.swift */; };
 		36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CB2B793EFC007FF51E /* EhallApp.swift */; };
 		36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CD2B793EFC007FF51E /* ContentView.swift */; };
 		36FBF0D02B793EFE007FF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF0CF2B793EFE007FF51E /* Assets.xcassets */; };
@@ -34,6 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		362CF7772B7942B40024DBED /* RequestFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFromApi.swift; sourceTree = "<group>"; };
+		362CF7792B7949770024DBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		362CF77B2B7A03CE0024DBED /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		362CF77D2B7A066B0024DBED /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
+		362CF77F2B7A10AE0024DBED /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
+		362CF7832B7A131E0024DBED /* CoursesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesList.swift; sourceTree = "<group>"; };
+		362CF7852B7A51D90024DBED /* CourseRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseRow.swift; sourceTree = "<group>"; };
+		362CF7882B7A5B650024DBED /* EhallData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhallData.swift; sourceTree = "<group>"; };
 		36FBF0C82B793EFC007FF51E /* Ehall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ehall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36FBF0CB2B793EFC007FF51E /* EhallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhallApp.swift; sourceTree = "<group>"; };
 		36FBF0CD2B793EFC007FF51E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362CF7752B7942390024DBED /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +89,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		362CF7762B7942480024DBED /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				362CF7772B7942B40024DBED /* RequestFromApi.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		362CF7812B7A12640024DBED /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				362CF77B2B7A03CE0024DBED /* Sidebar.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		362CF7822B7A12800024DBED /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				362CF77F2B7A10AE0024DBED /* CourseItem.swift */,
+				362CF7852B7A51D90024DBED /* CourseRow.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		362CF7872B7A5B2A0024DBED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				362CF7882B7A5B650024DBED /* EhallData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		36FBF0BF2B793EFC007FF51E = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +145,15 @@
 		36FBF0CA2B793EFC007FF51E /* Ehall */ = {
 			isa = PBXGroup;
 			children = (
-				36FBF0CB2B793EFC007FF51E /* EhallApp.swift */,
+				362CF7872B7A5B2A0024DBED /* Models */,
+				362CF7762B7942480024DBED /* Networking */,
+				362CF7822B7A12800024DBED /* Items */,
+				362CF7812B7A12640024DBED /* Navigation */,
+				362CF7792B7949770024DBED /* Info.plist */,
 				36FBF0CD2B793EFC007FF51E /* ContentView.swift */,
+				362CF77D2B7A066B0024DBED /* CourseView.swift */,
+				36FBF0CB2B793EFC007FF51E /* EhallApp.swift */,
+				362CF7832B7A131E0024DBED /* CoursesList.swift */,
 				36FBF0CF2B793EFE007FF51E /* Assets.xcassets */,
 				36FBF0D12B793EFE007FF51E /* Ehall.entitlements */,
 				36FBF0D22B793EFE007FF51E /* Preview Content */,
@@ -145,6 +202,9 @@
 			dependencies = (
 			);
 			name = Ehall;
+			packageProductDependencies = (
+				362CF7742B7942390024DBED /* Alamofire */,
+			);
 			productName = Ehall;
 			productReference = 36FBF0C82B793EFC007FF51E /* Ehall.app */;
 			productType = "com.apple.product-type.application";
@@ -217,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 36FBF0BF2B793EFC007FF51E;
+			packageReferences = (
+				362CF7732B7942390024DBED /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 36FBF0C92B793EFC007FF51E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,8 +322,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362CF7782B7942B40024DBED /* RequestFromApi.swift in Sources */,
+				362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */,
+				362CF7892B7A5B650024DBED /* EhallData.swift in Sources */,
 				36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */,
+				362CF7862B7A51D90024DBED /* CourseRow.swift in Sources */,
+				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,
 				36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */,
+				362CF7842B7A131E0024DBED /* CoursesList.swift in Sources */,
+				362CF77E2B7A066B0024DBED /* CourseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +494,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ehall/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -462,6 +534,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Ehall/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -617,6 +691,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		362CF7732B7942390024DBED /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		362CF7742B7942390024DBED /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 362CF7732B7942390024DBED /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36FBF0C02B793EFC007FF51E /* Project object */;
 }
