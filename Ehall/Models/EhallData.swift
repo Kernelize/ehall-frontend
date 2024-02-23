@@ -9,7 +9,8 @@ import Foundation
 import SwiftData
 
 struct EhallData {
-    private(set) var userData: UserData
+    var uuid = UUID()
+    var userData: UserData
     
     init(school: School, passwordLoginInfo: PasswordLoginInfo) {
         self.userData = UserData(passwordLoginInfo, school)
@@ -31,20 +32,20 @@ struct EhallData {
         }
     }
     
-    private mutating func refreshUserInfo() async {
+    mutating private func refreshUserInfo() async {
         if let res = await requestUserInfo(authToken: self.userData.authToken!) {
             self.userData.userInfo = res
         }
     }
     
-    private mutating func refreshUserScore() async {
+    mutating private func refreshUserScore() async {
         let scoreRequestInfo = ScoreRequestInfo(semester: "all", amount: 64)
         if let res = await requestUserScore(authToken: self.userData.authToken!, scoreRequestInfo: scoreRequestInfo) {
             self.userData.userScore = res
         }
     }
     
-    struct UserData {
+    struct UserData: Codable {
         var passwordLoginInfo: PasswordLoginInfo
         var school: School
         

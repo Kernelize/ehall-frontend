@@ -6,23 +6,24 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @State private var selection: AppScreen? = .home
     var body: some View {
-        #if os(iOS)
-        Sidebar()
-        #else
-        Sidebar()
-            .frame(minWidth: 1000, minHeight: 600)
-        #endif
+        AppTabView(selection: $selection)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Preview: PreviewProvider {
+//    static let container: ModelContainer = {
+//        let schema = Schema([EhallData.self])
+//        let container = try! ModelContainer(for: schema, configurations: [])
+//        return container
+//    }()
+    
     static var previews: some View {
-        Group {
-            ContentView()
-        }
+        ContentView()
+//            .modelContainer(container)
     }
 }
-

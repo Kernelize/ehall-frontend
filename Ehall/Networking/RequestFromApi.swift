@@ -8,28 +8,28 @@
 import Foundation
 import Alamofire
 
-enum School {
+enum School: Codable {
     case NanjingNormalUniversity
     case YanShanUniversity
 }
 
-struct PasswordLoginInfo: Encodable {
+struct PasswordLoginInfo: Codable {
     let username: String
     let password: String
 }
 
-struct AuthToken: Decodable {
+struct AuthToken: Codable {
     let auth_token: String
     let message: String
     let status: String
 }
 
-struct UserScore: Decodable {
+struct UserScore: Codable {
     let status: String
     let message: String
     let totalCount: Int?
     let data: [Data]?
-    struct Data: Decodable {
+    struct Data: Codable {
         let courseName: String
         let examTime: String
         let totalScore: Int
@@ -50,16 +50,16 @@ struct UserScore: Decodable {
     }
 }
 
-struct ScoreRequestInfo: Encodable {
+struct ScoreRequestInfo: Codable {
     let semester: String
     let amount: Int
 }
 
-struct UserInfo: Decodable {
+struct UserInfo: Codable {
     let status: String
     let message: String
     let data: Data?
-    struct Data: Decodable {
+    struct Data: Codable {
         let userName: String
         let userId: String
         let userType: String
@@ -75,10 +75,10 @@ func testLogin() async {
     let school = School.NanjingNormalUniversity
     
     let authToken = await requestAuthToken(school, loginInfo)
-    debugPrint(authToken)
+    debugPrint(authToken!)
     let scoreRequestInfo = ScoreRequestInfo(semester: "all", amount: 64)
     let userScore = await requestUserScore(authToken: authToken!.auth_token, scoreRequestInfo: scoreRequestInfo)
-    debugPrint(userScore)
+    debugPrint(userScore!)
 }
 
 func testRequestAuthToken() async -> String {
@@ -145,6 +145,7 @@ struct TestView: View {
         }
     }
 }
+
 struct Networking_Previews: PreviewProvider {
     static let container: ModelContainer = {
         let schema = Schema([Expense.self])

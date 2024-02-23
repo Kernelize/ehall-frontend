@@ -35,7 +35,7 @@ struct Sidebar: View {
     
     var content: some View {
         List {
-            NavigationLink(destination: ContentView()) {
+            NavigationLink(destination: DContentView()) {
                 Label("Courses", systemImage: "book.closed")
             }
             NavigationLink(destination: CourseView()) {
