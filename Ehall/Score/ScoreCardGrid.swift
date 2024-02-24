@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ScoreCardGrid: View {
     @State private var searchText = ""
+    let userData: [UserScore.Data]
     var body: some View {
         ScrollView {
-            ForEach(0..<15) { item in
-                ScoreCard()
+            ForEach(userData) { data in
+                ScoreCard(data: data)
             }
         }
         .searchable(text: $searchText)
     }
 }
+

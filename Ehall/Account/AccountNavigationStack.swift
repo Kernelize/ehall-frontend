@@ -9,7 +9,16 @@ import SwiftUI
 
 struct AccountNavigationStack: View {
     @State var showLoginView: Bool = false
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var score: ScoreViewModel
     
+    struct InternalConstant {
+        static let offsetHexagon: CGSize = .init(width: -50, height: -100)
+        static let offsetBlob: CGSize = .init(width: 200, height: 0)
+        static let sizeFontHexagon: Font = .system(size: 200)
+        static let sizeFontPerson: Font = .system(size: 32)
+    }
+
     var body: some View {
         NavigationView {
             List {
@@ -17,18 +26,35 @@ struct AccountNavigationStack: View {
                 // .frame(maxWidth: .infinity)
                 entryList
                 urlList
-                loginButton
+                if score.isAvailabe {
+                    logoutButton
+                } else {
+                    loginButton
+                }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Account")
+            .navigationBarTitle("Account", displayMode: .inline)
+            .navigationBarItems(trailing: DismissButton(title: "Done", presentationMode: _presentationMode))
         }
     }
-    
+    /*
+     
+     .font(InternalConstant.sizeFontPerson)
+     .foregroundStyle(.blue, .blue.opacity(0.3))
+     .padding()
+     .background(Circle().fill(.ultraThinMaterial))
+     .background(
+         GlobalConstant.Account.systemImageHexagon
+             .foregroundColor(.blue)
+             .font(InternalConstant.sizeFontHexagon)
+             .offset(InternalConstant.offsetHexagon)
+     )
+    */
     var nameCard: some View {
         VStack(spacing: 8) {
             Image(systemName: "person.crop.circle.badge.checkmark")
                 .symbolVariant(.circle.fill)
-                .font(.system(size: 32))
+                .font(InternalConstant.sizeFontPerson)
                 .symbolRenderingMode(.palette)
                 .foregroundStyle(.blue, .blue.opacity(0.3))
                 .padding()
@@ -37,28 +63,26 @@ struct AccountNavigationStack: View {
                     Image(systemName: "hexagon")
                         .symbolVariant(.fill)
                         .foregroundColor(.blue)
-                        .font(.system(size: 200))
-                        .offset(x: -50, y: -100)
+                        .font(InternalConstant.sizeFontHexagon)
+                        .offset(InternalConstant.offsetHexagon)
                 )
-//            if userName != nil {
-//                Text(userName!)
-//                    .font(.title.weight(.semibold))
-//            } else {
-//                Text("Not logged in")
-//                    .font(.title.weight(.semibold))
-//            }
-//                if let userInfo = ehallData[0].userData.userInfo {
-//                    if let data = userInfo.data {
-//                        Text(data.userName)
-//                                .font(.title.weight(.semibold))
-//                    }
-//                }
-//                    .font(.title.weight(.semibold))
-            HStack {
-                Image(systemName: "location")
-                    .imageScale(.small)
-                Text("California, USA")
-                    .foregroundStyle(.secondary)
+                .background(
+                    Blob()
+                        .offset(InternalConstant.offsetBlob)
+                        .scaleEffect(0.6)
+                )
+            if score.isAvailabe {
+                Text(score.info!.data!.userName)
+                    .font(.title.weight(.semibold))
+                HStack {
+                    Image(systemName: "location")
+                        .imageScale(.small)
+                    Text(score.info!.data!.userDepartment)
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                Text("Please Sign In")
+                    .font(.title.weight(.semibold))
             }
         }
         .frame(maxWidth: .infinity)
@@ -80,7 +104,7 @@ struct AccountNavigationStack: View {
         Section {
             Link(destination: URL(string: "https://github.com/Kernelize")!) {
                 HStack {
-                    Label("Homepage", systemImage: "house")
+                    Label("Our Homepage", systemImage: "house")
                     Spacer()
                     Image(systemName: "link")
                 }
@@ -102,6 +126,19 @@ struct AccountNavigationStack: View {
             }
         }
     }
+    
+    var logoutButton: some View {
+        Section {
+            Button(action: {
+                withAnimation(.easeInOut) {
+                    self.score.logout()
+                }
+            }, label: {
+                Text("Logout")
+                    .foregroundStyle(Color.red)
+            })
+        }
+    }
 
     func entry(destination: some View, label: String, systemImage: String) -> some View {
         NavigationLink(destination: destination) {
@@ -112,4 +149,5 @@ struct AccountNavigationStack: View {
 
 #Preview {
     AccountNavigationStack()
+        .environmentObject(ScoreViewModel())
 }

@@ -10,16 +10,12 @@ import SwiftData
 
 @main
 struct EhallApp: App {
-    
-//    let container: ModelContainer = {
-//        let schema = Schema([EhallData.self])
-//        let container = try! ModelContainer(for: schema, configurations: [])
-//        return container
-//    }()
-    
+    @StateObject var score = ScoreViewModel()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(score)
         }
 //        .modelContainer(container)
         // inject our datamodel here

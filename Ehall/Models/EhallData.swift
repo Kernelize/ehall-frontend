@@ -10,10 +10,18 @@ import SwiftData
 
 struct EhallData {
     var uuid = UUID()
-    var userData: UserData
+    var userData: UserData?
     
-    init(school: School, passwordLoginInfo: PasswordLoginInfo) {
-        self.userData = UserData(passwordLoginInfo, school)
+    var isAvailable: Bool {
+        if let _ = self.userData {
+            true
+        } else {
+            false
+        }
+    }
+    
+    init() {
+        self.userData = nil
     }
     
     mutating func refreshAll() async {
@@ -22,26 +30,43 @@ struct EhallData {
     }
     
     // login and refresh the userInfo
-    mutating func login() async -> Bool {
-        if let res = await requestAuthToken(self.userData.school, self.userData.passwordLoginInfo) {
-            self.userData.authToken = res.auth_token
-            await refreshUserInfo()
-            return true
-        } else {
+    @MainActor
+    mutating func loginWithPassword(p: PasswordLoginInfo, s: School) async -> Bool {
+        guard let authToken = await requestAuthToken(s, p) else {
             return false
         }
+        print("authToken succeed")
+        
+        guard let userInfo = await requestUserInfo(authToken: authToken.auth_token) else {
+            return false
+        }
+        print("userInfo succeed")
+
+        guard let userScore = await requestUserScore(authToken: authToken.auth_token, scoreRequestInfo: ScoreRequestInfo(semester: "all", amount: 64)) else {
+            return false
+        }
+        print("userScore succeed")
+        self.userData = UserData(passwordLoginInfo: p, school: s, authToken: authToken.auth_token, userScore: userScore, userInfo: userInfo)
+
+        print("All succedd, Available: \(self.isAvailable)")
+        
+        return true
+    }
+    
+    mutating func logout() {
+        self.userData = nil
     }
     
     mutating private func refreshUserInfo() async {
-        if let res = await requestUserInfo(authToken: self.userData.authToken!) {
-            self.userData.userInfo = res
+        if let res = await requestUserInfo(authToken: self.userData!.authToken) {
+            self.userData!.userInfo = res
         }
     }
     
     mutating private func refreshUserScore() async {
         let scoreRequestInfo = ScoreRequestInfo(semester: "all", amount: 64)
-        if let res = await requestUserScore(authToken: self.userData.authToken!, scoreRequestInfo: scoreRequestInfo) {
-            self.userData.userScore = res
+        if let res = await requestUserScore(authToken: self.userData!.authToken, scoreRequestInfo: scoreRequestInfo) {
+            self.userData!.userScore = res
         }
     }
     
@@ -49,14 +74,9 @@ struct EhallData {
         var passwordLoginInfo: PasswordLoginInfo
         var school: School
         
-        var authToken: String?
-        var userScore: UserScore?
-        var userInfo: UserInfo?
-        
-        init(_ passwordLoginInfo: PasswordLoginInfo, _ school: School) {
-            self.school = school
-            self.passwordLoginInfo = passwordLoginInfo
-        }
+        var authToken: String
+        var userScore: UserScore
+        var userInfo: UserInfo
     }
 }
 

@@ -26,6 +26,9 @@
 		362CF7A62B7B9D4C0024DBED /* ScoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7A52B7B9D4C0024DBED /* ScoreDetailView.swift */; };
 		362CF7A82B7BA6CA0024DBED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7A72B7BA6CA0024DBED /* LoginView.swift */; };
 		36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89BB2B89011A00A18FF5 /* AccountButton.swift */; };
+		36BB89BF2B890BCF00A18FF5 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89BE2B890BCF00A18FF5 /* ScoreViewModel.swift */; };
+		36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C02B89C16C00A18FF5 /* DismissButton.swift */; };
+		36BB89C52B89EAD100A18FF5 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C42B89EAD100A18FF5 /* Blob.swift */; };
 		36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CB2B793EFC007FF51E /* EhallApp.swift */; };
 		36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CD2B793EFC007FF51E /* ContentView.swift */; };
 		36FBF0D02B793EFE007FF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF0CF2B793EFE007FF51E /* Assets.xcassets */; };
@@ -73,6 +76,9 @@
 		362CF7A52B7B9D4C0024DBED /* ScoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDetailView.swift; sourceTree = "<group>"; };
 		362CF7A72B7BA6CA0024DBED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		36BB89BB2B89011A00A18FF5 /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
+		36BB89BE2B890BCF00A18FF5 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
+		36BB89C02B89C16C00A18FF5 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
+		36BB89C42B89EAD100A18FF5 /* Blob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
 		36FBF0C82B793EFC007FF51E /* Ehall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ehall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36FBF0CB2B793EFC007FF51E /* EhallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhallApp.swift; sourceTree = "<group>"; };
 		36FBF0CD2B793EFC007FF51E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 				362CF79C2B7B9A6B0024DBED /* AccountNavigationStack.swift */,
 				362CF7A72B7BA6CA0024DBED /* LoginView.swift */,
 				36BB89BB2B89011A00A18FF5 /* AccountButton.swift */,
+				36BB89C02B89C16C00A18FF5 /* DismissButton.swift */,
+				36BB89C42B89EAD100A18FF5 /* Blob.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -182,6 +190,14 @@
 				362CF7A52B7B9D4C0024DBED /* ScoreDetailView.swift */,
 			);
 			path = Score;
+			sourceTree = "<group>";
+		};
+		36BB89BD2B890A4700A18FF5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				36BB89BE2B890BCF00A18FF5 /* ScoreViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		36FBF0BF2B793EFC007FF51E = {
@@ -208,6 +224,7 @@
 		36FBF0CA2B793EFC007FF51E /* Ehall */ = {
 			isa = PBXGroup;
 			children = (
+				36BB89BD2B890A4700A18FF5 /* ViewModel */,
 				362CF79E2B7B9AB60024DBED /* Score */,
 				362CF79B2B7B9A350024DBED /* Account */,
 				362CF7982B7B99740024DBED /* Home */,
@@ -395,11 +412,14 @@
 				362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */,
 				362CF7892B7A5B650024DBED /* EhallData.swift in Sources */,
 				36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */,
+				36BB89BF2B890BCF00A18FF5 /* ScoreViewModel.swift in Sources */,
 				362CF7A42B7B9CB20024DBED /* ScoreCardGrid.swift in Sources */,
 				362CF7862B7A51D90024DBED /* CourseRow.swift in Sources */,
 				362CF7952B7B967A0024DBED /* TrashView.swift in Sources */,
+				36BB89C52B89EAD100A18FF5 /* Blob.swift in Sources */,
 				362CF79D2B7B9A6B0024DBED /* AccountNavigationStack.swift in Sources */,
 				362CF7972B7B96CD0024DBED /* AppTabView.swift in Sources */,
+				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,
 				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,
 				362CF79A2B7B99880024DBED /* HomeNavigationStack.swift in Sources */,

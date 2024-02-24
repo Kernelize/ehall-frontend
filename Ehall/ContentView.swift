@@ -16,14 +16,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Preview: PreviewProvider {
-//    static let container: ModelContainer = {
-//        let schema = Schema([EhallData.self])
-//        let container = try! ModelContainer(for: schema, configurations: [])
-//        return container
-//    }()
-    
     static var previews: some View {
         ContentView()
-//            .modelContainer(container)
+            .environmentObject(ScoreViewModel())
     }
 }

@@ -11,13 +11,21 @@ import Alamofire
 enum School: Codable {
     case NanjingNormalUniversity
     case YanShanUniversity
+    
+    func str() -> String {
+        switch self {
+        case .NanjingNormalUniversity:
+            "nnu"
+        case .YanShanUniversity:
+            "y"
+        }
+    }
 }
 
 struct PasswordLoginInfo: Codable {
     let username: String
     let password: String
 }
-
 struct AuthToken: Codable {
     let auth_token: String
     let message: String
@@ -29,7 +37,7 @@ struct UserScore: Codable {
     let message: String
     let totalCount: Int?
     let data: [Data]?
-    struct Data: Codable {
+    struct Data: Codable, Identifiable {
         let courseName: String
         let examTime: String
         let totalScore: Int
@@ -40,13 +48,17 @@ struct UserScore: Codable {
         let regularPercent: String?
         let midPercent: String?
         let finalPercent: String?
-        let lessonType: String
-        let lessonCate: String
+        let courseType: String
+        let courseCate: String
         let isRetake: String
         let credits: Float
         let gradeType: String
         let semester: String
         let department: String
+        
+        var id: String {
+            courseName
+        }
     }
 }
 
@@ -74,29 +86,31 @@ func testLogin() async {
     let loginInfo = PasswordLoginInfo(username: "21220513", password: "283511")
     let school = School.NanjingNormalUniversity
     
-    let authToken = await requestAuthToken(school, loginInfo)
-    debugPrint(authToken!)
+    let authToken = await requestAuthToken(school, loginInfo)!
+    debugPrint(authToken)
     let scoreRequestInfo = ScoreRequestInfo(semester: "all", amount: 64)
-    let userScore = await requestUserScore(authToken: authToken!.auth_token, scoreRequestInfo: scoreRequestInfo)
-    debugPrint(userScore!)
+    let userScore = await requestUserScore(authToken: authToken.auth_token, scoreRequestInfo: scoreRequestInfo)
+    debugPrint(userScore)
 }
 
-func testRequestAuthToken() async -> String {
+func testRequestAuthToken() async -> String? {
     let loginInfo = PasswordLoginInfo(username: "21220513", password: "283511")
     let school = School.NanjingNormalUniversity
     
-    let authToken = await requestAuthToken(school, loginInfo)
-    return authToken!.auth_token
+    if let authToken = await requestAuthToken(school, loginInfo) {
+        return authToken.auth_token
+    }
+    return nil
 }
 
 func requestAuthToken(_ school: School, _ loginInfo: PasswordLoginInfo) async -> AuthToken? {
-    let requestAuthTokenUrl = backendHost + "/api/" + schoolToStr(school) + "/cas_login"
+    let requestAuthTokenUrl = backendHost + "/" + school.str() + "/cas_login"
     let response = AF.request(requestAuthTokenUrl, method: .post, parameters: loginInfo, encoder: JSONParameterEncoder.default).serializingDecodable(AuthToken.self)
     return try? await response.value
 }
 
 func requestUserInfo(authToken: String) async -> UserInfo? {
-    let requestUserInfoUrl = backendHost + "/api/nnu/user/info"
+    let requestUserInfoUrl = backendHost + "/nnu/user/info"
     var headers: HTTPHeaders = [.accept("application/json")]
     headers.add(.authorization(authToken))
     let response = AF.request(requestUserInfoUrl, headers: headers).serializingDecodable(UserInfo.self)
@@ -104,7 +118,7 @@ func requestUserInfo(authToken: String) async -> UserInfo? {
 }
 
 func requestUserScore(authToken: String, scoreRequestInfo: ScoreRequestInfo) async -> UserScore? {
-    let requestScoreUrl = backendHost + "/api/nnu/user/score"
+    let requestScoreUrl = backendHost + "/nnu/user/score"
     var headers: HTTPHeaders = [.accept("application/json")]
     headers.add(.authorization(authToken))
     
@@ -112,34 +126,16 @@ func requestUserScore(authToken: String, scoreRequestInfo: ScoreRequestInfo) asy
     return try? await response.value
 }
 
-func schoolToStr(_ school: School) -> String {
-    switch school {
-    case .NanjingNormalUniversity:
-        "nnu"
-    case .YanShanUniversity:
-        "ysu"
-    }
-}
-
 import SwiftUI
 import SwiftData
 
 struct TestView: View {
-    @Environment(\.modelContext) var context
-    @Query(sort: \Expense.authToken) var expenses: [Expense]
-    
     var body: some View {
         VStack {
-            if expenses.isEmpty {
-                Text("shit")
-            } else {
-                Text(expenses[0].authToken)
-            }
             Button("get") {
                 Task {
                     let authToken = await testRequestAuthToken()
-                    let expense = Expense(authToken: authToken)
-                    context.insert(expense)
+                    print(authToken)
                 }
             }
         }
@@ -147,14 +143,7 @@ struct TestView: View {
 }
 
 struct Networking_Previews: PreviewProvider {
-    static let container: ModelContainer = {
-        let schema = Schema([Expense.self])
-        let container = try! ModelContainer(for: schema, configurations: [])
-        return container
-    }()
-    
     static var previews: some View {
         TestView()
-            .modelContainer(container)
     }
 }
