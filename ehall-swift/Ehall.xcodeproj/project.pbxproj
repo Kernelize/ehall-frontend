@@ -32,7 +32,7 @@
 		36BB89C72B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C62B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		36F94D722B905E8200C0C182 /* ehallNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D712B905E8200C0C182 /* ehallNetworking.swift */; };
+		36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D732B90C80000C0C182 /* ehall_networking.swift */; };
 		36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CB2B793EFC007FF51E /* EhallApp.swift */; };
 		36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CD2B793EFC007FF51E /* ContentView.swift */; };
 		36FBF0D02B793EFE007FF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF0CF2B793EFE007FF51E /* Assets.xcassets */; };
@@ -98,7 +98,7 @@
 		36BB89C42B89EAD100A18FF5 /* Blob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
 		36BB89C62B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewHeaderWithImageBlock.swift; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
-		36F94D712B905E8200C0C182 /* ehallNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehallNetworking.swift; path = "../../../ehall-networking/bindings/ehallNetworking.swift"; sourceTree = "<group>"; };
+		36F94D732B90C80000C0C182 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
 		36FBF0C82B793EFC007FF51E /* Ehall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ehall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36FBF0CB2B793EFC007FF51E /* EhallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhallApp.swift; sourceTree = "<group>"; };
 		36FBF0CD2B793EFC007FF51E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		36F94D702B905E5200C0C182 /* FFI */ = {
 			isa = PBXGroup;
 			children = (
-				36F94D712B905E8200C0C182 /* ehallNetworking.swift */,
+				36F94D732B90C80000C0C182 /* ehall_networking.swift */,
 			);
 			path = FFI;
 			sourceTree = "<group>";
@@ -449,7 +449,6 @@
 				362CF7A22B7B9C310024DBED /* ScoreCard.swift in Sources */,
 				36BB89C72B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift in Sources */,
 				362CF7782B7942B40024DBED /* RequestFromApi.swift in Sources */,
-				36F94D722B905E8200C0C182 /* ehallNetworking.swift in Sources */,
 				362CF7A02B7B9ACA0024DBED /* ScoreNavigationStack.swift in Sources */,
 				362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */,
 				362CF7892B7A5B650024DBED /* EhallData.swift in Sources */,
@@ -463,6 +462,7 @@
 				362CF7972B7B96CD0024DBED /* AppTabView.swift in Sources */,
 				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,
+				36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */,
 				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,
 				362CF79A2B7B99880024DBED /* HomeNavigationStack.swift in Sources */,
 				36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */,

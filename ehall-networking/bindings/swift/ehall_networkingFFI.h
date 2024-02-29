@@ -51,12 +51,20 @@ typedef struct RustCallStatus {
 typedef void (*UniFfiRustFutureContinuation)(void * _Nonnull, int8_t);
 
 // Scaffolding functions
+void*_Nonnull uniffi_ehall_networking_fn_clone_ehalldatamodel(void*_Nonnull ptr, RustCallStatus *_Nonnull out_status
+);
+void uniffi_ehall_networking_fn_free_ehalldatamodel(void*_Nonnull ptr, RustCallStatus *_Nonnull out_status
+);
+void*_Nonnull uniffi_ehall_networking_fn_constructor_ehalldatamodel_new(RustCallStatus *_Nonnull out_status
+    
+);
+void* _Nonnull uniffi_ehall_networking_fn_method_ehalldatamodel_login(void*_Nonnull ptr, RustBuffer username, RustBuffer password, RustBuffer school
+);
+void* _Nonnull uniffi_ehall_networking_fn_method_ehalldatamodel_logout(void*_Nonnull ptr
+);
 uint64_t uniffi_ehall_networking_fn_func_rust_add(uint64_t left, uint64_t right, RustCallStatus *_Nonnull out_status
 );
 RustBuffer uniffi_ehall_networking_fn_func_rust_greeting(RustBuffer name, RustCallStatus *_Nonnull out_status
-);
-RustBuffer uniffi_ehall_networking_fn_func_rust_tokio_test(RustCallStatus *_Nonnull out_status
-    
 );
 RustBuffer ffi_ehall_networking_rustbuffer_alloc(int32_t size, RustCallStatus *_Nonnull out_status
 );
@@ -176,7 +184,13 @@ uint16_t uniffi_ehall_networking_checksum_func_rust_add(void
 uint16_t uniffi_ehall_networking_checksum_func_rust_greeting(void
     
 );
-uint16_t uniffi_ehall_networking_checksum_func_rust_tokio_test(void
+uint16_t uniffi_ehall_networking_checksum_method_ehalldatamodel_login(void
+    
+);
+uint16_t uniffi_ehall_networking_checksum_method_ehalldatamodel_logout(void
+    
+);
+uint16_t uniffi_ehall_networking_checksum_constructor_ehalldatamodel_new(void
     
 );
 uint32_t ffi_ehall_networking_uniffi_contract_version(void
