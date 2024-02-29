@@ -1,0 +1,18 @@
+[package]
+name = "ehall-networking"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+uniffi = { version = "0.26", features = ["cli"] }
+tokio = { version = "1", features = ["full"] }
+
+[build-dependencies]
+uniffi = { version = "0.26", features = ["build", "bindgen"] }
+
+[lib]
+crate-type = ["lib", "cdylib", "staticlib"]
+
+# [[bin]]
+# name = "uniffi-bindgen"
+# path = "uniffi-bindgen.rs"
