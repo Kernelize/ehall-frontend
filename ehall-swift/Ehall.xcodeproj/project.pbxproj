@@ -99,6 +99,7 @@
 		36BB89C62B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewHeaderWithImageBlock.swift; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
 		36F94D732B90C80000C0C182 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
+		36F94D7B2B935A1900C0C182 /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
 		36FBF0C82B793EFC007FF51E /* Ehall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ehall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36FBF0CB2B793EFC007FF51E /* EhallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhallApp.swift; sourceTree = "<group>"; };
 		36FBF0CD2B793EFC007FF51E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -241,6 +242,7 @@
 		36FBF0BF2B793EFC007FF51E = {
 			isa = PBXGroup;
 			children = (
+				36F94D7B2B935A1900C0C182 /* NOTES.md */,
 				36FBF0CA2B793EFC007FF51E /* Ehall */,
 				36FBF0DC2B793EFE007FF51E /* EhallTests */,
 				36FBF0E62B793EFE007FF51E /* EhallUITests */,

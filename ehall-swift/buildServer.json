@@ -12,7 +12,7 @@
 	"argv": [
 		"/usr/local/bin/xcode-build-server"
 	],
-	"workspace": "/Users/hank/Library/Mobile Documents/com~apple~CloudDocs/Development/Ehall/ehall-swift/Ehall.xcodeproj/project.xcworkspace",
+	"workspace": "/Users/hank/Development/Ehall/ehall-swift/Ehall.xcodeproj/project.xcworkspace",
 	"build_root": "/Users/hank/Library/Developer/Xcode/DerivedData/Ehall-gtdqwllkgpflfzcwsqtqkjmhybzp",
 	"scheme": "Ehall",
 	"kind": "xcode"
