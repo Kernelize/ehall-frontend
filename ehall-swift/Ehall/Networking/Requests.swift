@@ -53,6 +53,36 @@ func requestCourseScore(_ authToken: AuthToken, school: School, semester: String
     }
 }
 
+func requestCourseScoreRank(_ authToken: AuthToken, school: School, courseId: String, classId: String, semester: String) async throws -> CourseScoreRank {
+    let requestCourseScoreRankUrl = backendHost + "/" + school.str() + "/user/score_rank"
+    let courseScoreRankRequest = CourseScoreRankRequest(courseId: courseId, classId: classId, semester: semester)
+    var headers: HTTPHeaders = [.accept("application/json")]
+    headers.add(.authorization(authToken))
+    
+    let response = AF.request(requestCourseScoreRankUrl, method: .post, parameters: courseScoreRankRequest, encoder: JSONParameterEncoder.default, headers: headers).serializingDecodable(CourseScoreRankResponse.self)
+    let courseScoreRankResponse = try await response.value
+    if let courseScoreRank = courseScoreRankResponse.data {
+        return courseScoreRank
+    } else {
+        throw RequestError(status: courseScoreRankResponse.status, message: courseScoreRankResponse.message)
+    }
+}
+
+func requestCourseScoreRank(_ authToken: AuthToken, school: School, semester: String) async throws -> CourseTable {
+    let requestCourseTableUrl = backendHost + "/" + school.str() + "/user/course_table"
+    let courseTableRequest = CourseTableRequest(semester: semester)
+    var headers: HTTPHeaders = [.accept("application/json")]
+    headers.add(.authorization(authToken))
+    
+    let response = AF.request(requestCourseTableUrl, method: .post, parameters: courseTableRequest, encoder: JSONParameterEncoder.default, headers: headers).serializingDecodable(CourseTableResponse.self)
+    let courseTableResponse = try await response.value
+    if let courseTable = courseTableResponse.data {
+        return courseTable
+    } else {
+        throw RequestError(status: courseTableResponse.status, message: courseTableResponse.message)
+    }
+}
+
 struct RequestError: Error {
     let status: String
     let message: String

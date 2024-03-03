@@ -18,3 +18,15 @@ struct CourseScoreResponse: Codable {
     let totalCount: Int
     let data: [CourseScore]?
 }
+
+struct CourseScoreRankRequest: Codable {
+    let courseId: String
+    let classId: String
+    let semester: String
+}
+
+struct CourseScoreRankResponse: Codable {
+    let status: String
+    let message: String
+    let data: CourseScoreRank?
+}

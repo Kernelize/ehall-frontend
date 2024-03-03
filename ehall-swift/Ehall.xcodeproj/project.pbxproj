@@ -33,6 +33,7 @@
 		36CD154F2B9464E4006E2FCC /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD154E2B9464E4006E2FCC /* Auth.swift */; };
 		36CD15512B9464FA006E2FCC /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15502B9464FA006E2FCC /* Info.swift */; };
 		36CD15532B946505006E2FCC /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15522B946505006E2FCC /* Score.swift */; };
+		36CD15552B949E03006E2FCC /* CourseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15542B949E03006E2FCC /* CourseTable.swift */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D732B90C80000C0C182 /* ehall_networking.swift */; };
@@ -103,6 +104,7 @@
 		36CD154E2B9464E4006E2FCC /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		36CD15502B9464FA006E2FCC /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		36CD15522B946505006E2FCC /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		36CD15542B949E03006E2FCC /* CourseTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTable.swift; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
 		36F94D732B90C80000C0C182 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
 		36F94D7B2B935A1900C0C182 /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				36CD154E2B9464E4006E2FCC /* Auth.swift */,
 				36CD15502B9464FA006E2FCC /* Info.swift */,
 				36CD15522B946505006E2FCC /* Score.swift */,
+				36CD15542B949E03006E2FCC /* CourseTable.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				362CF7972B7B96CD0024DBED /* AppTabView.swift in Sources */,
 				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,
+				36CD15552B949E03006E2FCC /* CourseTable.swift in Sources */,
 				36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */,
 				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,
 				362CF79A2B7B99880024DBED /* HomeNavigationStack.swift in Sources */,

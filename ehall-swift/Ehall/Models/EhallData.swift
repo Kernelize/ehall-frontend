@@ -98,6 +98,66 @@ struct CourseScore: Codable, Identifiable {
     }
 }
 
+struct CourseScoreRank: Codable {
+    let `class`: Class
+    let school: School
+    
+    struct Class: Codable {
+        let rank: Int
+        let totalPeopleNum: Int
+        let lowScore: Int
+        let highScore: Int
+        let averageScore: Int
+        let numAbove90: Int
+        let numAbove80: Int
+        let numAbove70: Int
+        let numAbove60: Int?
+        let numAbove50: Int?
+    }
+    
+    struct School: Codable {
+        let rank: Int
+        let totalPeopleNum: Int
+        let lowScore: Int
+        let highScore: Int
+        let averageScore: Int
+        let numAbove90: Int
+        let numAbove80: Int
+        let numAbove70: Int
+        let numAbove60: Int?
+        let numAbove50: Int?
+    }
+}
+
+struct CourseTable: Codable {
+    let arranged: [Arranged]
+    let not_arranged: [NotArranged]
+    
+    struct Arranged: Codable {
+        let courseName: String
+        let classId: String
+        let courseId: String
+        let credit: Int
+        let creditHour: Int
+        let semester: String
+        let teacher: String
+        let time: String
+        let week: String
+        let classroom: String
+    }
+    
+    struct NotArranged: Codable {
+        let courseName: String
+        let classId: String
+        let courseId: String
+        let credit: Int
+        let creditHour: Int
+        let semester: String
+        let teacher: String
+        let week: String
+    }
+}
+
 @Model
 class Expense {
     var authToken: String
