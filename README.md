@@ -15,10 +15,18 @@ rustup target add aarch64-apple-ios
 rustup target add aarch64-apple-darwin
 ```
 
-2. Build the ehall-network library, generate the .xcframework
+2. Generate the .xcframework
+do:
 ```bash
 cd ehall-network
+make all
+```
+
+3. Open the Ehall.xcodeproj in Xcode and build the app
+
+
+Step 2 and 3 can be replaced by the following command:
+```bash
 ./build.sh
 ```
 
-3. Open Xcode and build the app
