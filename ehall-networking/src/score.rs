@@ -1,22 +1,22 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct ScoreRequest {
+pub struct RScoreRequest {
     semester: String,
     amount: u64,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct ScoreResponse {
+pub struct RScoreResponse {
     pub status: String,
     pub message: String,
     pub total_count: u64,
-    pub data: Option<Vec<Score>>,
+    pub data: Option<Vec<RScore>>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
 #[serde(rename_all = "camelCase")]
-pub struct Score {
+pub struct RScore {
     course_name: String,
     exam_time: String,
     course_id: String,

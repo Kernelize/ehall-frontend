@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		362CF7752B7942390024DBED /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 362CF7742B7942390024DBED /* Alamofire */; };
-		362CF7782B7942B40024DBED /* RequestFromApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7772B7942B40024DBED /* RequestFromApi.swift */; };
+		362CF7782B7942B40024DBED /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7772B7942B40024DBED /* Requests.swift */; };
 		362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF77B2B7A03CE0024DBED /* Sidebar.swift */; };
 		362CF77E2B7A066B0024DBED /* CourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF77D2B7A066B0024DBED /* CourseView.swift */; };
 		362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF77F2B7A10AE0024DBED /* CourseItem.swift */; };
@@ -30,6 +30,9 @@
 		36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C02B89C16C00A18FF5 /* DismissButton.swift */; };
 		36BB89C52B89EAD100A18FF5 /* Blob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C42B89EAD100A18FF5 /* Blob.swift */; };
 		36BB89C72B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C62B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift */; };
+		36CD154F2B9464E4006E2FCC /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD154E2B9464E4006E2FCC /* Auth.swift */; };
+		36CD15512B9464FA006E2FCC /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15502B9464FA006E2FCC /* Info.swift */; };
+		36CD15532B946505006E2FCC /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15522B946505006E2FCC /* Score.swift */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D732B90C80000C0C182 /* ehall_networking.swift */; };
@@ -74,7 +77,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		362CF7772B7942B40024DBED /* RequestFromApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFromApi.swift; sourceTree = "<group>"; };
+		362CF7772B7942B40024DBED /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		362CF7792B7949770024DBED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		362CF77B2B7A03CE0024DBED /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		362CF77D2B7A066B0024DBED /* CourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseView.swift; sourceTree = "<group>"; };
@@ -97,6 +100,9 @@
 		36BB89C02B89C16C00A18FF5 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		36BB89C42B89EAD100A18FF5 /* Blob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blob.swift; sourceTree = "<group>"; };
 		36BB89C62B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewHeaderWithImageBlock.swift; sourceTree = "<group>"; };
+		36CD154E2B9464E4006E2FCC /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		36CD15502B9464FA006E2FCC /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		36CD15522B946505006E2FCC /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
 		36F94D732B90C80000C0C182 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
 		36F94D7B2B935A1900C0C182 /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
@@ -143,7 +149,10 @@
 		362CF7762B7942480024DBED /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				362CF7772B7942B40024DBED /* RequestFromApi.swift */,
+				362CF7772B7942B40024DBED /* Requests.swift */,
+				36CD154E2B9464E4006E2FCC /* Auth.swift */,
+				36CD15502B9464FA006E2FCC /* Info.swift */,
+				36CD15522B946505006E2FCC /* Score.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -450,7 +459,8 @@
 			files = (
 				362CF7A22B7B9C310024DBED /* ScoreCard.swift in Sources */,
 				36BB89C72B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift in Sources */,
-				362CF7782B7942B40024DBED /* RequestFromApi.swift in Sources */,
+				362CF7782B7942B40024DBED /* Requests.swift in Sources */,
+				36CD15512B9464FA006E2FCC /* Info.swift in Sources */,
 				362CF7A02B7B9ACA0024DBED /* ScoreNavigationStack.swift in Sources */,
 				362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */,
 				362CF7892B7A5B650024DBED /* EhallData.swift in Sources */,
@@ -461,6 +471,8 @@
 				362CF7952B7B967A0024DBED /* TrashView.swift in Sources */,
 				36BB89C52B89EAD100A18FF5 /* Blob.swift in Sources */,
 				362CF79D2B7B9A6B0024DBED /* AccountNavigationStack.swift in Sources */,
+				36CD15532B946505006E2FCC /* Score.swift in Sources */,
+				36CD154F2B9464E4006E2FCC /* Auth.swift in Sources */,
 				362CF7972B7B96CD0024DBED /* AppTabView.swift in Sources */,
 				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,

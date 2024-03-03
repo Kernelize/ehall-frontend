@@ -1,61 +1,61 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, uniffi::Enum)]
-pub enum Schcool {
+pub enum RSchcool {
     NanjingNormalUniversity,
     YanShanUniversity,
 }
 
-impl std::fmt::Display for Schcool {
+impl std::fmt::Display for RSchcool {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Schcool::NanjingNormalUniversity => write!(f, "南京师范大学"),
-            Schcool::YanShanUniversity => write!(f, "燕山大学"),
+            RSchcool::NanjingNormalUniversity => write!(f, "南京师范大学"),
+            RSchcool::YanShanUniversity => write!(f, "燕山大学"),
         }
     }
 }
 
-impl std::str::FromStr for Schcool {
+impl std::str::FromStr for RSchcool {
     type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
-            "nnu" => Ok(Schcool::NanjingNormalUniversity),
-            "ysu" => Ok(Schcool::YanShanUniversity),
+            "nnu" => Ok(RSchcool::NanjingNormalUniversity),
+            "ysu" => Ok(RSchcool::YanShanUniversity),
             _ => Err(format!("{} is not a valid school", s)),
         }
     }
 }
 
-impl Schcool {
+impl RSchcool {
     pub fn as_str(&self) -> &str {
         match self {
-            Schcool::NanjingNormalUniversity => "nnu",
-            Schcool::YanShanUniversity => "ysu",
+            RSchcool::NanjingNormalUniversity => "nnu",
+            RSchcool::YanShanUniversity => "ysu",
         }
     }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct UsernameAndPassword {
+pub struct RUsernameAndPassword {
     pub username: String,
     pub password: String,
 }
 
-impl UsernameAndPassword {
+impl RUsernameAndPassword {
     pub fn new(username: String, password: String) -> Self {
         Self { username, password }
     }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct LoginRequest {
+pub struct RLoginRequest {
     username: String,
     password: String,
 }
 
-impl From<&UsernameAndPassword> for LoginRequest {
-    fn from(username_and_password: &UsernameAndPassword) -> Self {
+impl From<&RUsernameAndPassword> for RLoginRequest {
+    fn from(username_and_password: &RUsernameAndPassword) -> Self {
         Self {
             username: username_and_password.username.clone(),
             password: username_and_password.password.clone(),
@@ -63,8 +63,8 @@ impl From<&UsernameAndPassword> for LoginRequest {
     }
 }
 
-impl From<UsernameAndPassword> for LoginRequest {
-    fn from(username_and_password: UsernameAndPassword) -> Self {
+impl From<RUsernameAndPassword> for RLoginRequest {
+    fn from(username_and_password: RUsernameAndPassword) -> Self {
         Self {
             username: username_and_password.username,
             password: username_and_password.password,
@@ -73,10 +73,10 @@ impl From<UsernameAndPassword> for LoginRequest {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct LoginResponse {
+pub struct RLoginResponse {
     pub status: String,
     pub message: String,
-    pub auth_token: Option<AuthToken>,
+    pub auth_token: Option<RAuthToken>,
 }
 
-pub type AuthToken = String;
+pub type RAuthToken = String;

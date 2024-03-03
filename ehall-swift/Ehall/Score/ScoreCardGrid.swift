@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScoreCardGrid: View {
     @State private var searchText = ""
-    let userData: [UserScore.Data]
+    let userData: [CourseScore]
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: 0)], spacing: 20) {
             ForEach(userData) { data in

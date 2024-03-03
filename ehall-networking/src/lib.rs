@@ -14,30 +14,30 @@ use score::*;
 const BACKEND_HOST: &str = "http://47.115.205.46:8080";
 
 #[derive(uniffi::Object)]
-pub enum EhallDataModel {
+pub enum REhallDataModel {
     NotLoggedIn,
     LoggedIn {
-        username_and_password: UsernameAndPassword,
-        school: Schcool,
-        auth_token: AuthToken,
+        username_and_password: RUsernameAndPassword,
+        school: RSchcool,
+        auth_token: RAuthToken,
     },
     Ok {
-        username_and_password: UsernameAndPassword,
-        school: Schcool,
-        auth_token: AuthToken,
+        username_and_password: RUsernameAndPassword,
+        school: RSchcool,
+        auth_token: RAuthToken,
         user_info: RUserInfo,
-        user_score: Vec<Score>,
+        user_score: Vec<RScore>,
     },
 }
 
-impl Default for EhallDataModel {
+impl Default for REhallDataModel {
     fn default() -> Self {
         Self::new()
     }
 }
 
 #[uniffi::export]
-impl EhallDataModel {
+impl REhallDataModel {
 
     #[uniffi::constructor]
     pub fn new() -> Self {
@@ -48,44 +48,44 @@ impl EhallDataModel {
         &self,
         username: String,
         password: String,
-        school: Schcool,
+        school: RSchcool,
     ) -> Self {
-        let username_and_password = UsernameAndPassword { username, password };
+        let username_and_password = RUsernameAndPassword { username, password };
         match login(&username_and_password, school).await {
-            Ok(auth_token) => EhallDataModel::LoggedIn {
+            Ok(auth_token) => REhallDataModel::LoggedIn {
                 username_and_password,
                 school,
                 auth_token,
             },
-            Err(_e) => EhallDataModel::NotLoggedIn,
+            Err(_e) => REhallDataModel::NotLoggedIn,
         }
     }
 
     // pub async fn get_user_info(&mut self) {}
 
     pub async fn logout(&self) -> Self {
-        EhallDataModel::NotLoggedIn
+        REhallDataModel::NotLoggedIn
     }
 }
 
 async fn login(
-    username_and_password: &UsernameAndPassword,
-    school: Schcool,
-) -> Result<AuthToken, Box<dyn std::error::Error>> {
+    username_and_password: &RUsernameAndPassword,
+    school: RSchcool,
+) -> Result<RAuthToken, Box<dyn std::error::Error>> {
     let url = format!("{}/{}/cas_login", BACKEND_HOST, school.as_str());
     let client = reqwest::Client::new();
     let response = client
         .post(&url)
-        .json(&LoginRequest::from(username_and_password))
+        .json(&RLoginRequest::from(username_and_password))
         .send()
         .await?;
-    let response = response.json::<LoginResponse>().await?;
+    let response = response.json::<RLoginResponse>().await?;
     response.auth_token.ok_or(response.message.into())
 }
 
 pub async fn request_user_info(
-    auth_token: &AuthToken,
-    school: &Schcool,
+    auth_token: &RAuthToken,
+    school: &RSchcool,
 ) -> Result<RUserInfo, Box<dyn std::error::Error>> {
     let url = format!("{}/{}/user/info", BACKEND_HOST, school.as_str());
     let client = reqwest::Client::new();
@@ -94,14 +94,14 @@ pub async fn request_user_info(
         .header("Authorization", auth_token)
         .send()
         .await?;
-    let response = response.json::<UserInfoResponse>().await?;
+    let response = response.json::<RUserInfoResponse>().await?;
     response.data.ok_or(response.message.into())
 }
 
 pub async fn request_user_score(
-    auth_token: &AuthToken,
-    school: &Schcool,
-) -> Result<Vec<Score>, Box<dyn std::error::Error>> {
+    auth_token: &RAuthToken,
+    school: &RSchcool,
+) -> Result<Vec<RScore>, Box<dyn std::error::Error>> {
     let url = format!("{}/{}/user/score", BACKEND_HOST, school.as_str());
     let client = reqwest::Client::new();
     let response = client
@@ -109,7 +109,7 @@ pub async fn request_user_score(
         .header("Authorization", auth_token)
         .send()
         .await?;
-    let response = response.json::<ScoreResponse>().await?;
+    let response = response.json::<RScoreResponse>().await?;
     response.data.ok_or(response.message.into())
 }
 
@@ -119,8 +119,8 @@ mod tests {
 
     #[tokio::test]
     async fn test_login() {
-        let x = UsernameAndPassword::new("21220513".into(), "283511".into());
-        let y = login(&x, Schcool::NanjingNormalUniversity).await;
+        let x = RUsernameAndPassword::new("21220513".into(), "283511".into());
+        let y = login(&x, RSchcool::NanjingNormalUniversity).await;
         assert!(y.is_ok());
     }
 }

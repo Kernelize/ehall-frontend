@@ -32,10 +32,10 @@ struct LoginView: View {
                 ZStack {
                     Button(action: {
                         self.isAnimating = true
-                        let loginInfo = PasswordLoginInfo(username: username, password: password)
+                        let loginInfo = UsernameAndPassword(username: username, password: password)
                         
                         Task {
-                            if await score.loginWithPassword(p: loginInfo, s: .NanjingNormalUniversity) {
+                            if await score.login(p: loginInfo, s: .NanjingNormalUniversity) {
                                 DispatchQueue.main.async {
                                     self.isAnimating = false
                                     self.presentationMode.wrappedValue.dismiss()

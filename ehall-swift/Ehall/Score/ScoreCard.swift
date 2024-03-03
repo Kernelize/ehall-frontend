@@ -21,7 +21,7 @@ struct ScoreCard : View {
         }
     }
     
-    let data: UserScore.Data
+    let data: CourseScore
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 30, style: .continuous)
@@ -64,5 +64,25 @@ struct ScoreCard : View {
 }
 
 #Preview {
-    ScoreCard(data: UserScore.Data(courseName: "毛泽东思想和中国特色社会主义理论体系", examTime: "2022-0-0", totalScore: 100, gradePoint: "5.0", regularScore: "100", midScore: "100", finalScore: "100", regularPercent: "100", midPercent: "100", finalPercent: "100", courseType: "必修课", courseCate: "必修课", isRetake: "初修", credits: 100, gradeType: "Unknown", semester: "2022-0-0", department: "电气与自动化工程学院"))
+    ScoreCard(data: CourseScore(
+        courseName: "毛泽东思想和中国特色社会主义理论体系",
+        examTime: "2022-0-0",
+        courseId: "66666",
+        classId: "555555",
+        totalScore: 100,
+        gradePoint: "5.0",
+        regularScore: "100",
+        midScore: "100",
+        finalScore: "100",
+        regularPercent: "100",
+        midPercent: "100",
+        finalPercent: "100",
+        courseType: "必修课",
+        courseCate: "必修课",
+        isRetake: "初修",
+        credits: 100,
+        gradeType: "Unknown",
+        semester: "2022-0-0",
+        department: "电气与自动化工程学院"
+    ))
 }

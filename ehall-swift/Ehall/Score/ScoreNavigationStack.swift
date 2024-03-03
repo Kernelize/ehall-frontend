@@ -11,8 +11,8 @@ struct ScoreNavigationStack: View {
     @State var isAccountViewPresented = false
     @EnvironmentObject var score: ScoreViewModel
     
-    @State private var selectedCourseID: UserScore.Data?
-    @State private var topmostCourseID: UserScore.Data?
+    @State private var selectedCourseID: CourseScore?
+    @State private var topmostCourseID: CourseScore?
     @Namespace private var namespace
 
     var body: some View {
@@ -30,7 +30,7 @@ struct ScoreNavigationStack: View {
     var content: some View {
         Group {
             if score.isAvailabe {
-                ScoreCardGrid(userData: score.scores.data ?? [])
+                ScoreCardGrid(userData: score.scores)
             } else {
                 Spacer()
 //                myContentUnavailableView

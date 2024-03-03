@@ -8,71 +8,81 @@
 import Foundation
 import SwiftData
 
-struct EhallData {
-    var uuid = UUID()
-    var userData: UserData?
-    
-    var isAvailable: Bool {
-        self.userData != nil
-    }
-    
-    init() {
-        self.userData = nil
-    }
-    
-    mutating func refreshAll() async {
-        await refreshUserInfo()
-        await refreshUserScore()
-    }
-    
-    // login and refresh the userInfo
-    @MainActor
-    mutating func loginWithPassword(p: PasswordLoginInfo, s: School) async -> Bool {
-        guard let authToken = await requestAuthToken(s, p) else {
-            return false
-        }
-        print("authToken succeed")
-        
-        guard let userInfo = await requestUserInfo(authToken: authToken.auth_token) else {
-            return false
-        }
-        print("userInfo succeed")
+enum EhallDataModel: Codable {
+    case NotLoggedIn
+    case LoggedIn (
+        usernameAndPassword: UsernameAndPassword,
+        school: School,
+        authToken: AuthToken,
+        userInfo: UserInfo
+    )
+    case LoggedInWithScore (
+        usernameAndPassword: UsernameAndPassword,
+        school: School,
+        authToken: AuthToken,
+        userInfo: UserInfo,
+        courseScores: [CourseScore]
+    )
+}
 
-        guard let userScore = await requestUserScore(authToken: authToken.auth_token, scoreRequestInfo: ScoreRequestInfo(semester: "all", amount: 64)) else {
-            return false
+enum School: Codable {
+    case NanjingNormalUniversity
+    case YanShanUniversity
+    
+    func str() -> String {
+        switch self {
+        case .NanjingNormalUniversity:
+            "nnu"
+        case .YanShanUniversity:
+            "y"
         }
-        print("userScore succeed")
-        self.userData = UserData(passwordLoginInfo: p, school: s, authToken: authToken.auth_token, userScore: userScore, userInfo: userInfo)
+    }
+}
 
-        print("All succedd, Available: \(self.isAvailable)")
-        
-        return true
-    }
+struct UsernameAndPassword: Codable {
+    let username: String
+    let password: String
+}
+
+enum UserSex: Codable {
+    case male, female
+}
+
+enum UserType: Codable {
+    case teacher, student
+}
+
+struct UserInfo: Codable {
+    let username: String
+    let userId: String
+    let userType: UserType
+    let userDepartment: String
+    let userSex: UserSex
+}
+
+struct CourseScore: Codable, Identifiable {
+    let courseName: String
+    let examTime: String
+    let courseId: String
+    let classId: String
+    let totalScore: Int
+    let gradePoint: String
+    let regularScore: String?
+    let midScore: String?
+    let finalScore: String?
+    let regularPercent: String?
+    let midPercent: String?
+    let finalPercent: String?
+    let courseType: String
+    let courseCate: String
+    let isRetake: String
+    let credits: Float
+    let gradeType: String
+    let semester: String
+    let department: String
     
-    mutating func logout() {
-        self.userData = nil
-    }
-    
-    mutating private func refreshUserInfo() async {
-        if let res = await requestUserInfo(authToken: self.userData!.authToken) {
-            self.userData!.userInfo = res
-        }
-    }
-    
-    mutating private func refreshUserScore() async {
-        let scoreRequestInfo = ScoreRequestInfo(semester: "all", amount: 64)
-        if let res = await requestUserScore(authToken: self.userData!.authToken, scoreRequestInfo: scoreRequestInfo) {
-            self.userData!.userScore = res
-        }
-    }
-    
-    struct UserData: Codable {
-        var passwordLoginInfo: PasswordLoginInfo
-        var school: School
-        
-        var authToken: String
-        var userScore: UserScore
-        var userInfo: UserInfo
+    var id: String {
+        courseName
     }
 }
 

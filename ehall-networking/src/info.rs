@@ -1,10 +1,10 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct UserInfoRequest {}
+pub struct RUserInfoRequest {}
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Record)]
-pub struct UserInfoResponse {
+pub struct RUserInfoResponse {
     pub status: String,
     pub message: String,
     pub data: Option<RUserInfo>,
@@ -14,12 +14,12 @@ pub struct UserInfoResponse {
 pub struct RUserInfo {
     user_name: String,
     user_id: String,
-    user_type: UserType,
-    user_sex: UserSex,
+    user_type: RUserType,
+    user_sex: RUserSex,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Enum)]
-pub enum UserType {
+pub enum RUserType {
     Student,
     Teacher,
 }
@@ -35,7 +35,7 @@ pub enum UserType {
 // }
 
 #[derive(Debug, Clone, Serialize, Deserialize, uniffi::Enum)]
-pub enum UserSex {
+pub enum RUserSex {
     Male,
     Female,
 }

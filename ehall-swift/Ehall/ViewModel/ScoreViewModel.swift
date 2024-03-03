@@ -8,34 +8,56 @@
 import SwiftUI
 
 class ScoreViewModel: ObservableObject {
-    @Published private var ehallData: EhallData = createEhallData()
+    @Published private var ehallDataModel: EhallDataModel = createEhallDataModel()
     
-    private static func createEhallData() -> EhallData {
-        EhallData()
+    private static func createEhallDataModel() -> EhallDataModel {
+        EhallDataModel.NotLoggedIn
     }
     
-    func loginWithPassword(p: PasswordLoginInfo, s: School) async -> Bool {
-        await self.ehallData.loginWithPassword(p: p, s: s)
+    func login(p: UsernameAndPassword, s: School) async -> Bool {
+        do {
+            let authToken = try await requestAuthToken(s, p)
+            let userInfo = try await requestUserInfo(authToken, school: s)
+            self.ehallDataModel = EhallDataModel.LoggedIn(usernameAndPassword: p, school: s, authToken: authToken, userInfo: userInfo)
+            return true
+        } catch let error {
+            debugPrint(error)
+            return false
+        }
     }
     
     func refreshAll() async {
-        await self.ehallData.refreshAll()
     }
     
     func logout() {
-        self.ehallData.logout()
+        self.ehallDataModel = EhallDataModel.NotLoggedIn
     }
     
     var isAvailabe: Bool {
-        self.ehallData.isAvailable
+        switch self.ehallDataModel {
+        case .LoggedIn:
+            true
+        default:
+            false
+        }
     }
     
-    var scores: UserScore {
-        self.ehallData.userData!.userScore
+    var scores: [CourseScore] {
+        if case .LoggedInWithScore(let usernameAndPassword, let school, let authToken, let userInfo, let courseScores) = ehallDataModel {
+            courseScores
+        } else {
+            []
+        }
     }
     
     var info: UserInfo? {
-        self.ehallData.userData!.userInfo
+        switch self.ehallDataModel {
+        case .NotLoggedIn:
+            nil
+        case .LoggedIn(let usernameAndPassword, let school, let authToken, let userInfo):
+            userInfo
+        case .LoggedInWithScore(let usernameAndPassword, let school, let authToken, let userInfo, let courseScores):
+            userInfo
+        }
     }
-    
 }
