@@ -67,8 +67,8 @@ struct ScoreCard : View {
     ScoreCard(data: CourseScore(
         courseName: "毛泽东思想和中国特色社会主义理论体系",
         examTime: "2022-0-0",
-        courseId: "66666",
-        classId: "555555",
+        courseID: "66666",
+        classID: "555555",
         totalScore: 100,
         gradePoint: "5.0",
         regularScore: "100",

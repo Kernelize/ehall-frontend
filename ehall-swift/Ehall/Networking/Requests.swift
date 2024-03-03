@@ -14,7 +14,7 @@ func requestAuthToken(_ school: School, _ loginInfo: UsernameAndPassword) async 
     let requestAuthTokenUrl = backendHost + "/" + school.str() + "/cas_login"
     let response = AF.request(requestAuthTokenUrl, method: .post, parameters: loginInfo, encoder: JSONParameterEncoder.default).serializingDecodable(LoginResponse.self)
     let loginResponse = try await response.value
-    if let authToken = loginResponse.auth_token {
+    if let authToken = loginResponse.authToken {
         return authToken
     } else {
         throw RequestError(status: loginResponse.status, message: loginResponse.message)
@@ -53,9 +53,9 @@ func requestCourseScore(_ authToken: AuthToken, school: School, semester: String
     }
 }
 
-func requestCourseScoreRank(_ authToken: AuthToken, school: School, courseId: String, classId: String, semester: String) async throws -> CourseScoreRank {
+func requestCourseScoreRank(_ authToken: AuthToken, school: School, courseID: String, classID: String, semester: String) async throws -> CourseScoreRank {
     let requestCourseScoreRankUrl = backendHost + "/" + school.str() + "/user/score_rank"
-    let courseScoreRankRequest = CourseScoreRankRequest(courseId: courseId, classId: classId, semester: semester)
+    let courseScoreRankRequest = CourseScoreRankRequest(courseID: courseID, classID: classID, semester: semester)
     var headers: HTTPHeaders = [.accept("application/json")]
     headers.add(.authorization(authToken))
     

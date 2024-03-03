@@ -20,8 +20,8 @@ struct CourseScoreResponse: Codable {
 }
 
 struct CourseScoreRankRequest: Codable {
-    let courseId: String
-    let classId: String
+    let courseID: String
+    let classID: String
     let semester: String
 }
 

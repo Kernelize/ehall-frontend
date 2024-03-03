@@ -38,13 +38,16 @@ enum EhallDataModel: Codable {
 enum School: Codable {
     case NanjingNormalUniversity
     case YanShanUniversity
+    case NanjingUniversityOfAeronauticsAndAstronautics
     
     func str() -> String {
         switch self {
         case .NanjingNormalUniversity:
             "nnu"
         case .YanShanUniversity:
-            "y"
+            "ysu"
+        case .NanjingUniversityOfAeronauticsAndAstronautics:
+            "nuaa"
         }
     }
 }
@@ -75,8 +78,8 @@ struct UserInfo: Codable {
 struct CourseScore: Codable, Identifiable {
     let courseName: String
     let examTime: String
-    let courseId: String
-    let classId: String
+    let courseID: String
+    let classID: String
     let totalScore: Int
     let gradePoint: String
     let regularScore: String?
@@ -135,8 +138,8 @@ struct CourseTable: Codable {
     
     struct Arranged: Codable {
         let courseName: String
-        let classId: String
-        let courseId: String
+        let classID: String
+        let courseID: String
         let credit: Int
         let creditHour: Int
         let semester: String
@@ -148,8 +151,8 @@ struct CourseTable: Codable {
     
     struct NotArranged: Codable {
         let courseName: String
-        let classId: String
-        let courseId: String
+        let classID: String
+        let courseID: String
         let credit: Int
         let creditHour: Int
         let semester: String
