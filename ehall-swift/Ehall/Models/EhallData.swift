@@ -115,7 +115,7 @@ struct CourseScoreRank: Codable {
         let numAbove80: Int
         let numAbove70: Int
         let numAbove60: Int?
-        let numAbove50: Int?
+        let numBelow60: Int?
     }
     
     struct School: Codable {
@@ -128,7 +128,7 @@ struct CourseScoreRank: Codable {
         let numAbove80: Int
         let numAbove70: Int
         let numAbove60: Int?
-        let numAbove50: Int?
+        let numBelow60: Int?
     }
 }
 
