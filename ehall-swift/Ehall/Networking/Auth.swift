@@ -22,5 +22,5 @@ typealias AuthToken = String
 struct LoginResponse: Codable {
     let status: String
     let message: String
-    let authToken: AuthToken?
+    let auth_token: AuthToken?
 }

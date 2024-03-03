@@ -60,7 +60,7 @@ struct AccountNavigationStack: View {
                         .scaleEffect(0.6)
                 )
             if score.isAvailabe {
-                Text(score.info!.username)
+                Text(score.info!.userName)
                     .font(.title.weight(.semibold))
                 HStack {
                     Image(systemName: "location")

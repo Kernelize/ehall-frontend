@@ -33,8 +33,11 @@ struct ScoreNavigationStack: View {
                 ScoreCardGrid(userData: score.scores)
             } else {
                 Spacer()
-//                myContentUnavailableView
-                Spacer()
+                    .onAppear {
+                        Task {
+                            await score.getScore()
+                        }
+                    }
             }
         }
         .navigationTitle("Score")

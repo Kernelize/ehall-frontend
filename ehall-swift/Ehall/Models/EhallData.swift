@@ -23,6 +23,16 @@ enum EhallDataModel: Codable {
         userInfo: UserInfo,
         courseScores: [CourseScore]
     )
+    
+    func json() throws -> Data {
+        let encoded = try JSONEncoder().encode(self)
+        print("ehallDataModel = \(String(describing: String(data: encoded, encoding: .utf8) ?? nil))")
+        return encoded
+    }
+    
+    init(json: Data) throws {
+        self = try JSONDecoder().decode(EhallDataModel.self, from: json)
+    }
 }
 
 enum School: Codable {
@@ -53,11 +63,13 @@ enum UserType: Codable {
 }
 
 struct UserInfo: Codable {
-    let username: String
+    let userName: String
     let userId: String
-    let userType: UserType
+    // FIXME: - use enum instead
+    let userType: String
     let userDepartment: String
-    let userSex: UserSex
+    // FIXME: - use enum instead
+    let userSex: String
 }
 
 struct CourseScore: Codable, Identifiable {

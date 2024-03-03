@@ -187,6 +187,8 @@
 		362CF7932B7B965E0024DBED /* Trash */ = {
 			isa = PBXGroup;
 			children = (
+				362CF77D2B7A066B0024DBED /* CourseView.swift */,
+				362CF7832B7A131E0024DBED /* CoursesList.swift */,
 				362CF7942B7B967A0024DBED /* TrashView.swift */,
 			);
 			path = Trash;
@@ -285,9 +287,7 @@
 				362CF7812B7A12640024DBED /* Navigation */,
 				362CF7792B7949770024DBED /* Info.plist */,
 				36FBF0CD2B793EFC007FF51E /* ContentView.swift */,
-				362CF77D2B7A066B0024DBED /* CourseView.swift */,
 				36FBF0CB2B793EFC007FF51E /* EhallApp.swift */,
-				362CF7832B7A131E0024DBED /* CoursesList.swift */,
 				36FBF0CF2B793EFE007FF51E /* Assets.xcassets */,
 				36FBF0D12B793EFE007FF51E /* Ehall.entitlements */,
 				36FBF0D22B793EFE007FF51E /* Preview Content */,

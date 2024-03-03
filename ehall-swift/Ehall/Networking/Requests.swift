@@ -14,7 +14,7 @@ func requestAuthToken(_ school: School, _ loginInfo: UsernameAndPassword) async 
     let requestAuthTokenUrl = backendHost + "/" + school.str() + "/cas_login"
     let response = AF.request(requestAuthTokenUrl, method: .post, parameters: loginInfo, encoder: JSONParameterEncoder.default).serializingDecodable(LoginResponse.self)
     let loginResponse = try await response.value
-    if let authToken = loginResponse.authToken {
+    if let authToken = loginResponse.auth_token {
         return authToken
     } else {
         throw RequestError(status: loginResponse.status, message: loginResponse.message)
@@ -32,6 +32,10 @@ func requestUserInfo(_ authToken: AuthToken, school: School) async throws -> Use
     } else {
         throw RequestError(status: userInfoResponse.status, message: userInfoResponse.message)
     }
+}
+
+func requestCourseScore(_ authToken: AuthToken, school: School) async throws -> [CourseScore] {
+    try await requestCourseScore(authToken, school: school, semester: "all", amount: 64)
 }
 
 func requestCourseScore(_ authToken: AuthToken, school: School, semester: String, amount: Int) async throws -> [CourseScore] {
@@ -69,9 +73,9 @@ struct TestView: View {
             }
             Button("get") {
                 Task {
-                    // await testLogin()
                     print(Mirror(reflecting: vs).subjectType)
                     print(rustGreeting(name: "Swift"))
+                    await testLogin()
                 }
             }
         }
@@ -79,6 +83,17 @@ struct TestView: View {
 }
 
 func testLogin() async {
+    do {
+        let p = UsernameAndPassword(username: "21220513", password: "283511")
+        let authToken = try await requestAuthToken(.NanjingNormalUniversity, p)
+        debugPrint(authToken)
+        let userInfo = try await requestUserInfo(authToken, school: .NanjingNormalUniversity)
+        debugPrint(userInfo)
+        let courseScores = try await requestCourseScore(authToken, school: .NanjingNormalUniversity)
+        debugPrint(courseScores)
+    } catch let error {
+        debugPrint(error)
+    }
 }
 
 func testRequestAuthToken() async -> String? {
