@@ -12,7 +12,13 @@ struct ScoreCardGrid: View {
     let userData: [CourseScore]
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: 0)], spacing: 20) {
-            ForEach(userData) { data in
+            ForEach(userData.filter {
+                if searchText != "" {
+                    $0.courseName.contains(searchText)
+                } else {
+                    true
+                }
+            }) { data in
                 Button {
                     
                 } label: {
@@ -23,6 +29,7 @@ struct ScoreCardGrid: View {
                 .buttonStyle(ScaledButtonStyle())
             }
         }
+        .searchable(text: $searchText)
     }
 }
 

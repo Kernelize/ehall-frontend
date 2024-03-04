@@ -13,6 +13,8 @@ build:
 	cargo build --target aarch64-apple-darwin --release
 	cargo build --target aarch64-apple-ios --release
 	cargo build --target aarch64-apple-ios-sim --release
+	# cargo build --target x86_64-apple-ios --release
+	# cargo build --target x86_64-apple-darwin --release
 
 
 generate_ffi_bindings: build

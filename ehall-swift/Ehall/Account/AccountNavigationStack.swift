@@ -40,7 +40,7 @@ struct AccountNavigationStack: View {
     
     var nameCard: some View {
         VStack(spacing: 8) {
-            Image(systemName: score.isAvailabe ? "person.crop.circle.badge.checkmark" : "person.crop.circle.badge.questionmark")
+            Image(systemName: score.isInfoAvailable ? "person.crop.circle.badge.checkmark" : "person.crop.circle.badge.questionmark")
                 .symbolVariant(.circle.fill)
                 .font(InternalConstant.sizeFontPerson)
                 .symbolRenderingMode(.palette)
@@ -59,7 +59,7 @@ struct AccountNavigationStack: View {
                         .offset(InternalConstant.offsetBlob)
                         .scaleEffect(0.6)
                 )
-            if score.isAvailabe {
+            if score.isInfoAvailable {
                 Text(score.info!.userName)
                     .font(.title.weight(.semibold))
                 HStack {
@@ -110,7 +110,7 @@ struct AccountNavigationStack: View {
                 Text("Login")
             })
             .sheet(isPresented: $showLoginView) {
-                LoginView()
+                OnBoardingView()
             }
         }
     }

@@ -8,11 +8,7 @@
 import SwiftUI
 
 class ScoreViewModel: ObservableObject {
-    @Published private var ehallDataModel: EhallDataModel = createEhallDataModel() {
-        didSet {
-            autosave()
-        }
-    }
+    @Published private var ehallDataModel: EhallDataModel
     
     private let autosaveURL = URL.documentsDirectory.appendingPathComponent("Autosaved.ehalldata")
     
@@ -20,6 +16,8 @@ class ScoreViewModel: ObservableObject {
         if let data = try? Data(contentsOf: autosaveURL),
            let autoSavedEhallData = try? EhallDataModel(json: data) {
             self.ehallDataModel = autoSavedEhallData
+        } else {
+            self.ehallDataModel = EhallDataModel.NotLoggedIn
         }
     }
     
@@ -37,12 +35,19 @@ class ScoreViewModel: ObservableObject {
         }
     }
     
-    private static func createEhallDataModel() -> EhallDataModel {
-        EhallDataModel.NotLoggedIn
-    }
-    
     var isAvailabe: Bool {
         switch self.ehallDataModel {
+        case .LoggedInWithScore:
+            true
+        default:
+            false
+        }
+    }
+    
+    var isInfoAvailable: Bool {
+        switch self.ehallDataModel {
+        case .LoggedIn:
+            true
         case .LoggedInWithScore:
             true
         default:
@@ -91,13 +96,16 @@ class ScoreViewModel: ObservableObject {
             case .LoggedIn(let usernameAndPassword, let school, let authToken, let userInfo):
                 let courseScores = try await requestCourseScore(authToken, school: school)
                 self.ehallDataModel = EhallDataModel.LoggedInWithScore(usernameAndPassword: usernameAndPassword, school: school, authToken: authToken, userInfo: userInfo, courseScores: courseScores)
+                debugPrint("get score succedded")
                 return true
             case .LoggedInWithScore(let usernameAndPassword, let school, let authToken, let userInfo, _):
                 let courseScores = try await requestCourseScore(authToken, school: school)
                 self.ehallDataModel = EhallDataModel.LoggedInWithScore(usernameAndPassword: usernameAndPassword, school: school, authToken: authToken, userInfo: userInfo, courseScores: courseScores)
+                debugPrint("get score succedded")
                 return true
             default:
                 // FIXME: - What to do here?
+                debugPrint("get score failed")
                 return false
             }
         } catch let error {

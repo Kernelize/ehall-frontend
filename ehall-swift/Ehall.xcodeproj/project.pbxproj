@@ -34,6 +34,19 @@
 		36CD15512B9464FA006E2FCC /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15502B9464FA006E2FCC /* Info.swift */; };
 		36CD15532B946505006E2FCC /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15522B946505006E2FCC /* Score.swift */; };
 		36CD15552B949E03006E2FCC /* CourseTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15542B949E03006E2FCC /* CourseTable.swift */; };
+		36CD15572B94EA92006E2FCC /* HCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15562B94EA92006E2FCC /* HCard.swift */; };
+		36CD15592B94EA9D006E2FCC /* VCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15582B94EA9D006E2FCC /* VCard.swift */; };
+		36CD155E2B95A452006E2FCC /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 36CD155D2B95A452006E2FCC /* Inject */; };
+		36CD15612B95A4C0006E2FCC /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 36CD15602B95A4C0006E2FCC /* RiveRuntime */; };
+		36CD15632B95A539006E2FCC /* PreviewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15622B95A539006E2FCC /* PreviewConstants.swift */; };
+		36CD15652B95A746006E2FCC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15642B95A746006E2FCC /* OnBoardingView.swift */; };
+		36CD156E2B95A7B3006E2FCC /* check.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD15672B95A7B2006E2FCC /* check.riv */; };
+		36CD156F2B95A7B3006E2FCC /* button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD15682B95A7B2006E2FCC /* button.riv */; };
+		36CD15702B95A7B3006E2FCC /* confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD15692B95A7B2006E2FCC /* confetti.riv */; };
+		36CD15712B95A7B3006E2FCC /* menu_button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156A2B95A7B2006E2FCC /* menu_button.riv */; };
+		36CD15722B95A7B3006E2FCC /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156B2B95A7B2006E2FCC /* house.riv */; };
+		36CD15732B95A7B3006E2FCC /* icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156C2B95A7B2006E2FCC /* icons.riv */; };
+		36CD15742B95A7B3006E2FCC /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156D2B95A7B2006E2FCC /* shapes.riv */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D732B90C80000C0C182 /* ehall_networking.swift */; };
@@ -105,6 +118,17 @@
 		36CD15502B9464FA006E2FCC /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		36CD15522B946505006E2FCC /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		36CD15542B949E03006E2FCC /* CourseTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTable.swift; sourceTree = "<group>"; };
+		36CD15562B94EA92006E2FCC /* HCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HCard.swift; sourceTree = "<group>"; };
+		36CD15582B94EA9D006E2FCC /* VCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCard.swift; sourceTree = "<group>"; };
+		36CD15622B95A539006E2FCC /* PreviewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewConstants.swift; sourceTree = "<group>"; };
+		36CD15642B95A746006E2FCC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		36CD15672B95A7B2006E2FCC /* check.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = check.riv; sourceTree = "<group>"; };
+		36CD15682B95A7B2006E2FCC /* button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.riv; sourceTree = "<group>"; };
+		36CD15692B95A7B2006E2FCC /* confetti.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = confetti.riv; sourceTree = "<group>"; };
+		36CD156A2B95A7B2006E2FCC /* menu_button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu_button.riv; sourceTree = "<group>"; };
+		36CD156B2B95A7B2006E2FCC /* house.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = house.riv; sourceTree = "<group>"; };
+		36CD156C2B95A7B2006E2FCC /* icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.riv; sourceTree = "<group>"; };
+		36CD156D2B95A7B2006E2FCC /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
 		36F94D732B90C80000C0C182 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
 		36F94D7B2B935A1900C0C182 /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
@@ -127,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				362CF7752B7942390024DBED /* Alamofire in Frameworks */,
+				36CD15612B95A4C0006E2FCC /* RiveRuntime in Frameworks */,
 				36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */,
+				36CD155E2B95A452006E2FCC /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +240,7 @@
 				36BB89BB2B89011A00A18FF5 /* AccountButton.swift */,
 				36BB89C02B89C16C00A18FF5 /* DismissButton.swift */,
 				36BB89C42B89EAD100A18FF5 /* Blob.swift */,
+				36CD15642B95A746006E2FCC /* OnBoardingView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -225,6 +252,8 @@
 				362CF7A12B7B9C310024DBED /* ScoreCard.swift */,
 				362CF7A32B7B9CB20024DBED /* ScoreCardGrid.swift */,
 				362CF7A52B7B9D4C0024DBED /* ScoreDetailView.swift */,
+				36CD15562B94EA92006E2FCC /* HCard.swift */,
+				36CD15582B94EA9D006E2FCC /* VCard.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -235,6 +264,20 @@
 				36BB89BE2B890BCF00A18FF5 /* ScoreViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		36CD15662B95A78B006E2FCC /* RIveAssets */ = {
+			isa = PBXGroup;
+			children = (
+				36CD15682B95A7B2006E2FCC /* button.riv */,
+				36CD15672B95A7B2006E2FCC /* check.riv */,
+				36CD15692B95A7B2006E2FCC /* confetti.riv */,
+				36CD156B2B95A7B2006E2FCC /* house.riv */,
+				36CD156C2B95A7B2006E2FCC /* icons.riv */,
+				36CD156A2B95A7B2006E2FCC /* menu_button.riv */,
+				36CD156D2B95A7B2006E2FCC /* shapes.riv */,
+			);
+			path = RIveAssets;
 			sourceTree = "<group>";
 		};
 		36F94D672B905D7700C0C182 /* Frameworks */ = {
@@ -278,6 +321,7 @@
 		36FBF0CA2B793EFC007FF51E /* Ehall */ = {
 			isa = PBXGroup;
 			children = (
+				36CD15662B95A78B006E2FCC /* RIveAssets */,
 				36F94D702B905E5200C0C182 /* FFI */,
 				36BB89BD2B890A4700A18FF5 /* ViewModel */,
 				362CF79E2B7B9AB60024DBED /* Score */,
@@ -302,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				36FBF0D32B793EFE007FF51E /* Preview Assets.xcassets */,
+				36CD15622B95A539006E2FCC /* PreviewConstants.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -342,6 +387,8 @@
 			name = Ehall;
 			packageProductDependencies = (
 				362CF7742B7942390024DBED /* Alamofire */,
+				36CD155D2B95A452006E2FCC /* Inject */,
+				36CD15602B95A4C0006E2FCC /* RiveRuntime */,
 			);
 			productName = Ehall;
 			productReference = 36FBF0C82B793EFC007FF51E /* Ehall.app */;
@@ -417,6 +464,8 @@
 			mainGroup = 36FBF0BF2B793EFC007FF51E;
 			packageReferences = (
 				362CF7732B7942390024DBED /* XCRemoteSwiftPackageReference "Alamofire" */,
+				36CD155C2B95A452006E2FCC /* XCRemoteSwiftPackageReference "Inject" */,
+				36CD155F2B95A4C0006E2FCC /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = 36FBF0C92B793EFC007FF51E /* Products */;
 			projectDirPath = "";
@@ -434,8 +483,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CD156E2B95A7B3006E2FCC /* check.riv in Resources */,
+				36CD156F2B95A7B3006E2FCC /* button.riv in Resources */,
+				36CD15712B95A7B3006E2FCC /* menu_button.riv in Resources */,
 				36FBF0D42B793EFE007FF51E /* Preview Assets.xcassets in Resources */,
+				36CD15742B95A7B3006E2FCC /* shapes.riv in Resources */,
+				36CD15732B95A7B3006E2FCC /* icons.riv in Resources */,
+				36CD15722B95A7B3006E2FCC /* house.riv in Resources */,
 				36FBF0D02B793EFE007FF51E /* Assets.xcassets in Resources */,
+				36CD15702B95A7B3006E2FCC /* confetti.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CD15572B94EA92006E2FCC /* HCard.swift in Sources */,
 				362CF7A22B7B9C310024DBED /* ScoreCard.swift in Sources */,
 				36BB89C72B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift in Sources */,
 				362CF7782B7942B40024DBED /* Requests.swift in Sources */,
@@ -475,8 +532,10 @@
 				36BB89C52B89EAD100A18FF5 /* Blob.swift in Sources */,
 				362CF79D2B7B9A6B0024DBED /* AccountNavigationStack.swift in Sources */,
 				36CD15532B946505006E2FCC /* Score.swift in Sources */,
+				36CD15632B95A539006E2FCC /* PreviewConstants.swift in Sources */,
 				36CD154F2B9464E4006E2FCC /* Auth.swift in Sources */,
 				362CF7972B7B96CD0024DBED /* AppTabView.swift in Sources */,
+				36CD15592B94EA9D006E2FCC /* VCard.swift in Sources */,
 				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,
 				36CD15552B949E03006E2FCC /* CourseTable.swift in Sources */,
@@ -484,6 +543,7 @@
 				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,
 				362CF79A2B7B99880024DBED /* HomeNavigationStack.swift in Sources */,
 				36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */,
+				36CD15652B95A746006E2FCC /* OnBoardingView.swift in Sources */,
 				362CF7A62B7B9D4C0024DBED /* ScoreDetailView.swift in Sources */,
 				362CF7842B7A131E0024DBED /* CoursesList.swift in Sources */,
 				362CF7A82B7BA6CA0024DBED /* LoginView.swift in Sources */,
@@ -861,6 +921,22 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		36CD155C2B95A452006E2FCC /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+		36CD155F2B95A4C0006E2FCC /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -868,6 +944,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 362CF7732B7942390024DBED /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		36CD155D2B95A452006E2FCC /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36CD155C2B95A452006E2FCC /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+		36CD15602B95A4C0006E2FCC /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36CD155F2B95A4C0006E2FCC /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

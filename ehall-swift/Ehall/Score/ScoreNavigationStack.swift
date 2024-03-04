@@ -17,7 +17,10 @@ struct ScoreNavigationStack: View {
 
     var body: some View {
         NavigationStack {
-            container
+            ZStack {
+//                Color("Background 2").ignoresSafeArea()
+                container
+            }
         }
     }
     
@@ -28,16 +31,22 @@ struct ScoreNavigationStack: View {
     }
     
     var content: some View {
-        Group {
-            if score.isAvailabe {
-                ScoreCardGrid(userData: score.scores)
-            } else {
-                Spacer()
-                    .onAppear {
-                        Task {
-                            await score.getScore()
+        VStack(alignment: .leading, spacing: 0) {
+//            Text("CourseScores")
+//                .font(.title3)
+//                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Group {
+                if score.isAvailabe {
+                    ScoreCardGrid(userData: score.scores)
+                } else {
+                    Spacer()
+                        .onAppear {
+                            Task {
+                                await score.getScore()
+                            }
                         }
-                    }
+                }
             }
         }
         .navigationTitle("Score")
@@ -46,6 +55,7 @@ struct ScoreNavigationStack: View {
                 AccountButton(isAccountViewPresented: $isAccountViewPresented)
             }
         }
+            
     }
     
     var myContentUnavailableView: some View {
