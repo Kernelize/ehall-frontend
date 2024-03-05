@@ -47,6 +47,7 @@
 		36CD15722B95A7B3006E2FCC /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156B2B95A7B2006E2FCC /* house.riv */; };
 		36CD15732B95A7B3006E2FCC /* icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156C2B95A7B2006E2FCC /* icons.riv */; };
 		36CD15742B95A7B3006E2FCC /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156D2B95A7B2006E2FCC /* shapes.riv */; };
+		36CD157A2B96DF01006E2FCC /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 36CD15792B96DF01006E2FCC /* Shimmer */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D732B90C80000C0C182 /* ehall_networking.swift */; };
@@ -151,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				362CF7752B7942390024DBED /* Alamofire in Frameworks */,
+				36CD157A2B96DF01006E2FCC /* Shimmer in Frameworks */,
 				36CD15612B95A4C0006E2FCC /* RiveRuntime in Frameworks */,
 				36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */,
 				36CD155E2B95A452006E2FCC /* Inject in Frameworks */,
@@ -389,6 +391,7 @@
 				362CF7742B7942390024DBED /* Alamofire */,
 				36CD155D2B95A452006E2FCC /* Inject */,
 				36CD15602B95A4C0006E2FCC /* RiveRuntime */,
+				36CD15792B96DF01006E2FCC /* Shimmer */,
 			);
 			productName = Ehall;
 			productReference = 36FBF0C82B793EFC007FF51E /* Ehall.app */;
@@ -466,6 +469,7 @@
 				362CF7732B7942390024DBED /* XCRemoteSwiftPackageReference "Alamofire" */,
 				36CD155C2B95A452006E2FCC /* XCRemoteSwiftPackageReference "Inject" */,
 				36CD155F2B95A4C0006E2FCC /* XCRemoteSwiftPackageReference "rive-ios" */,
+				36CD15782B96DF01006E2FCC /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = 36FBF0C92B793EFC007FF51E /* Products */;
 			projectDirPath = "";
@@ -937,6 +941,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		36CD15782B96DF01006E2FCC /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -954,6 +966,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 36CD155F2B95A4C0006E2FCC /* XCRemoteSwiftPackageReference "rive-ios" */;
 			productName = RiveRuntime;
+		};
+		36CD15792B96DF01006E2FCC /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 36CD15782B96DF01006E2FCC /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,13 +13,13 @@
       "size" : "20x20"
     },
     {
-      "filename" : "iPhone_29pt-1.png",
+      "filename" : "iPhone_29pt.png",
       "idiom" : "iphone",
       "scale" : "1x",
       "size" : "29x29"
     },
     {
-      "filename" : "iPhone_29pt@2x-1.png",
+      "filename" : "iPhone_29pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
@@ -31,7 +31,7 @@
       "size" : "29x29"
     },
     {
-      "filename" : "iPhone_40pt@2x-1.png",
+      "filename" : "iPhone_40pt@2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
@@ -85,7 +85,7 @@
       "size" : "40x40"
     },
     {
-      "filename" : "iPad_40@2x.png",
+      "filename" : "iPad_40pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
@@ -97,7 +97,7 @@
       "size" : "76x76"
     },
     {
-      "filename" : "iPad_76@2x.png",
+      "filename" : "iPad_76pt@2x.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
@@ -109,70 +109,10 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "AppStore.jpg",
+      "filename" : "App Icon iOS 1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
-    },
-    {
-      "filename" : "Mac_16pt.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "16x16"
-    },
-    {
-      "filename" : "Mac_16pt@2x.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "16x16"
-    },
-    {
-      "filename" : "Mac_32pt.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "32x32"
-    },
-    {
-      "filename" : "Mac_32pt@2x.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "32x32"
-    },
-    {
-      "filename" : "Mac_128pt.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "128x128"
-    },
-    {
-      "filename" : "Mac_128pt@2x.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "128x128"
-    },
-    {
-      "filename" : "Mac_256pt.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "256x256"
-    },
-    {
-      "filename" : "Mac_256pt@2x.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "256x256"
-    },
-    {
-      "filename" : "Mac_512pt.png",
-      "idiom" : "mac",
-      "scale" : "1x",
-      "size" : "512x512"
-    },
-    {
-      "filename" : "Mac_512pt@2x.png",
-      "idiom" : "mac",
-      "scale" : "2x",
-      "size" : "512x512"
     }
   ],
   "info" : {

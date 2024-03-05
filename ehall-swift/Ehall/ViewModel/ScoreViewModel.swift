@@ -8,7 +8,11 @@
 import SwiftUI
 
 class ScoreViewModel: ObservableObject {
-    @Published private var ehallDataModel: EhallDataModel
+    @Published private var ehallDataModel: EhallDataModel {
+        didSet {
+            autosave()
+        }
+    }
     
     private let autosaveURL = URL.documentsDirectory.appendingPathComponent("Autosaved.ehalldata")
     
@@ -19,6 +23,10 @@ class ScoreViewModel: ObservableObject {
         } else {
             self.ehallDataModel = EhallDataModel.NotLoggedIn
         }
+    }
+    
+    init(ehallDataModel: EhallDataModel) {
+        self.ehallDataModel = ehallDataModel
     }
     
     private func autosave() {

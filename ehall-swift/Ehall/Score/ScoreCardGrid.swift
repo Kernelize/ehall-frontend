@@ -10,26 +10,46 @@ import SwiftUI
 struct ScoreCardGrid: View {
     @State private var searchText = ""
     let userData: [CourseScore]
+    private var filteredUserData: [CourseScore] {
+        userData.filter {
+            if searchText != "" {
+                $0.courseName.contains(searchText)
+            } else {
+                true
+            }
+        }
+    }
+
     var body: some View {
         LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: 0)], spacing: 20) {
-            ForEach(userData.filter {
-                if searchText != "" {
-                    $0.courseName.contains(searchText)
-                } else {
-                    true
+            if filteredUserData.isEmpty {
+                ContentUnavailableView.search
+            } else {
+                ForEach(filteredUserData) { data in
+                    NavigationLink(destination: ScoreDetailView()) {
+                        HCard(score: data, backgroundColor: Color("Card \(Int.random(in: 1...5))"))
+                            .font(nil)
+                            .padding(.leading)
+                            .padding(.trailing)
+                    }
+                    .buttonStyle(ScaledButtonStyle())
                 }
-            }) { data in
-                Button {
-                    
-                } label: {
-                    ScoreCard(data: data)
-                        .padding(.leading)
-                        .padding(.trailing)
-                }
-                .buttonStyle(ScaledButtonStyle())
             }
         }
         .searchable(text: $searchText)
+    }
+}
+
+struct FakeScoreCardGrid: View {
+    var body: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 300), spacing: 0)], spacing: 20) {
+            ForEach(0..<10) { _ in
+                FakeHCard(backgroundColor: Color("Card \(Int.random(in: 1...5))"))
+                    .font(nil)
+                    .padding(.leading)
+                    .padding(.trailing)
+            }
+        }
     }
 }
 

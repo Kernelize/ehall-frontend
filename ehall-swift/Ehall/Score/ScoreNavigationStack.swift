@@ -18,7 +18,6 @@ struct ScoreNavigationStack: View {
     var body: some View {
         NavigationStack {
             ZStack {
-//                Color("Background 2").ignoresSafeArea()
                 container
             }
         }
@@ -32,20 +31,27 @@ struct ScoreNavigationStack: View {
     
     var content: some View {
         VStack(alignment: .leading, spacing: 0) {
-//            Text("CourseScores")
-//                .font(.title3)
-//                .frame(maxWidth: .infinity, alignment: .leading)
-            
             Group {
                 if score.isAvailabe {
                     ScoreCardGrid(userData: score.scores)
+                } else if score.isInfoAvailable {
+                    FakeScoreCardGrid()
+                    .task {
+                        while await score.getScore() == false {}
+                    }
                 } else {
-                    Spacer()
-                        .onAppear {
-                            Task {
-                                await score.getScore()
-                            }
+                    ContentUnavailableView {
+                        // 1
+                        Label("Not Logged In", systemImage: "person.crop.circle.badge.questionmark")
+                    } description: {
+                        Text("Log in to view your scores.")
+                    } actions: {
+                        // 2
+                        Button("Log In") {
+                            // Go to the movie list.
                         }
+                        .buttonStyle(.borderedProminent)
+                    }
                 }
             }
         }
@@ -56,15 +62,6 @@ struct ScoreNavigationStack: View {
             }
         }
             
-    }
-    
-    var myContentUnavailableView: some View {
-        ContentUnavailableView {
-            Label("Not Signed In", systemImage: "tray.fill")
-        } description: {
-            Text("Your Scores will be shown here")
-        }
-        .background()
     }
 }
 
