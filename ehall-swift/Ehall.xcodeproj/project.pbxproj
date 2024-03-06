@@ -48,9 +48,9 @@
 		36CD15732B95A7B3006E2FCC /* icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156C2B95A7B2006E2FCC /* icons.riv */; };
 		36CD15742B95A7B3006E2FCC /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156D2B95A7B2006E2FCC /* shapes.riv */; };
 		36CD157A2B96DF01006E2FCC /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 36CD15792B96DF01006E2FCC /* Shimmer */; };
+		36D063CC2B98A6FF00DD9382 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D063CB2B98A6FF00DD9382 /* ehall_networking.swift */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F94D732B90C80000C0C182 /* ehall_networking.swift */; };
 		36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CB2B793EFC007FF51E /* EhallApp.swift */; };
 		36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CD2B793EFC007FF51E /* ContentView.swift */; };
 		36FBF0D02B793EFE007FF51E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36FBF0CF2B793EFE007FF51E /* Assets.xcassets */; };
@@ -130,8 +130,8 @@
 		36CD156B2B95A7B2006E2FCC /* house.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = house.riv; sourceTree = "<group>"; };
 		36CD156C2B95A7B2006E2FCC /* icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.riv; sourceTree = "<group>"; };
 		36CD156D2B95A7B2006E2FCC /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
+		36D063CB2B98A6FF00DD9382 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
-		36F94D732B90C80000C0C182 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
 		36F94D7B2B935A1900C0C182 /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
 		36FBF0C82B793EFC007FF51E /* Ehall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ehall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36FBF0CB2B793EFC007FF51E /* EhallApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EhallApp.swift; sourceTree = "<group>"; };
@@ -282,20 +282,20 @@
 			path = RIveAssets;
 			sourceTree = "<group>";
 		};
+		36D063CA2B98A6CD00DD9382 /* FFI */ = {
+			isa = PBXGroup;
+			children = (
+				36D063CB2B98A6FF00DD9382 /* ehall_networking.swift */,
+			);
+			path = FFI;
+			sourceTree = "<group>";
+		};
 		36F94D672B905D7700C0C182 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		36F94D702B905E5200C0C182 /* FFI */ = {
-			isa = PBXGroup;
-			children = (
-				36F94D732B90C80000C0C182 /* ehall_networking.swift */,
-			);
-			path = FFI;
 			sourceTree = "<group>";
 		};
 		36FBF0BF2B793EFC007FF51E = {
@@ -323,8 +323,8 @@
 		36FBF0CA2B793EFC007FF51E /* Ehall */ = {
 			isa = PBXGroup;
 			children = (
+				36D063CA2B98A6CD00DD9382 /* FFI */,
 				36CD15662B95A78B006E2FCC /* RIveAssets */,
-				36F94D702B905E5200C0C182 /* FFI */,
 				36BB89BD2B890A4700A18FF5 /* ViewModel */,
 				362CF79E2B7B9AB60024DBED /* Score */,
 				362CF79B2B7B9A350024DBED /* Account */,
@@ -526,6 +526,7 @@
 				362CF7782B7942B40024DBED /* Requests.swift in Sources */,
 				36CD15512B9464FA006E2FCC /* Info.swift in Sources */,
 				362CF7A02B7B9ACA0024DBED /* ScoreNavigationStack.swift in Sources */,
+				36D063CC2B98A6FF00DD9382 /* ehall_networking.swift in Sources */,
 				362CF7802B7A10AE0024DBED /* CourseItem.swift in Sources */,
 				362CF7892B7A5B650024DBED /* EhallData.swift in Sources */,
 				36FBF0CE2B793EFC007FF51E /* ContentView.swift in Sources */,
@@ -543,7 +544,6 @@
 				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,
 				36CD15552B949E03006E2FCC /* CourseTable.swift in Sources */,
-				36F94D742B90C80000C0C182 /* ehall_networking.swift in Sources */,
 				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,
 				362CF79A2B7B99880024DBED /* HomeNavigationStack.swift in Sources */,
 				36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */,

@@ -17,7 +17,7 @@ struct EhallApp: App {
             ContentView()
                 .environmentObject(score)
         }
-//        .modelContainer(container)
+        // .modelContainer(container)
         // inject our datamodel here
     }
 }

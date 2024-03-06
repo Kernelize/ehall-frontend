@@ -69,3 +69,8 @@ struct ScoreNavigationStack: View {
     ScoreNavigationStack()
         .environmentObject(ScoreViewModel())
 }
+
+#Preview {
+    ScoreNavigationStack()
+        .environmentObject(PreviewScoreViewModel)
+}
