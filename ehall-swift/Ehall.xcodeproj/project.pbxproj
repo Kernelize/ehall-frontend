@@ -25,6 +25,7 @@
 		362CF7A42B7B9CB20024DBED /* ScoreCardGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7A32B7B9CB20024DBED /* ScoreCardGrid.swift */; };
 		362CF7A62B7B9D4C0024DBED /* ScoreDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7A52B7B9D4C0024DBED /* ScoreDetailView.swift */; };
 		362CF7A82B7BA6CA0024DBED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362CF7A72B7BA6CA0024DBED /* LoginView.swift */; };
+		36B6936B2B99BFDB00C1A976 /* HighLightCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B6936A2B99BFDB00C1A976 /* HighLightCards.swift */; };
 		36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89BB2B89011A00A18FF5 /* AccountButton.swift */; };
 		36BB89BF2B890BCF00A18FF5 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89BE2B890BCF00A18FF5 /* ScoreViewModel.swift */; };
 		36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BB89C02B89C16C00A18FF5 /* DismissButton.swift */; };
@@ -110,6 +111,7 @@
 		362CF7A32B7B9CB20024DBED /* ScoreCardGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreCardGrid.swift; sourceTree = "<group>"; };
 		362CF7A52B7B9D4C0024DBED /* ScoreDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDetailView.swift; sourceTree = "<group>"; };
 		362CF7A72B7BA6CA0024DBED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		36B6936A2B99BFDB00C1A976 /* HighLightCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLightCards.swift; sourceTree = "<group>"; };
 		36BB89BB2B89011A00A18FF5 /* AccountButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountButton.swift; sourceTree = "<group>"; };
 		36BB89BE2B890BCF00A18FF5 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		36BB89C02B89C16C00A18FF5 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				362CF7992B7B99880024DBED /* HomeNavigationStack.swift */,
 				36BB89C62B8A2A1500A18FF5 /* NavigationViewHeaderWithImageBlock.swift */,
+				36B6936A2B99BFDB00C1A976 /* HighLightCards.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -268,7 +271,7 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		36CD15662B95A78B006E2FCC /* RIveAssets */ = {
+		36CD15662B95A78B006E2FCC /* RiveAssets */ = {
 			isa = PBXGroup;
 			children = (
 				36CD15682B95A7B2006E2FCC /* button.riv */,
@@ -279,7 +282,7 @@
 				36CD156A2B95A7B2006E2FCC /* menu_button.riv */,
 				36CD156D2B95A7B2006E2FCC /* shapes.riv */,
 			);
-			path = RIveAssets;
+			path = RiveAssets;
 			sourceTree = "<group>";
 		};
 		36D063CA2B98A6CD00DD9382 /* FFI */ = {
@@ -324,7 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				36D063CA2B98A6CD00DD9382 /* FFI */,
-				36CD15662B95A78B006E2FCC /* RIveAssets */,
+				36CD15662B95A78B006E2FCC /* RiveAssets */,
 				36BB89BD2B890A4700A18FF5 /* ViewModel */,
 				362CF79E2B7B9AB60024DBED /* Score */,
 				362CF79B2B7B9A350024DBED /* Account */,
@@ -542,6 +545,7 @@
 				362CF7972B7B96CD0024DBED /* AppTabView.swift in Sources */,
 				36CD15592B94EA9D006E2FCC /* VCard.swift in Sources */,
 				36BB89C12B89C16C00A18FF5 /* DismissButton.swift in Sources */,
+				36B6936B2B99BFDB00C1A976 /* HighLightCards.swift in Sources */,
 				36BB89BC2B89011A00A18FF5 /* AccountButton.swift in Sources */,
 				36CD15552B949E03006E2FCC /* CourseTable.swift in Sources */,
 				362CF77C2B7A03CE0024DBED /* Sidebar.swift in Sources */,

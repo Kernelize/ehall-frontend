@@ -23,4 +23,5 @@ struct AppTabView: View {
 
 #Preview {
     AppTabView(selection: .constant(.home))
+        .environmentObject(PreviewScoreViewModel)
 }

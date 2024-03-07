@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScoreNavigationStack: View {
-    @State var isAccountViewPresented = false
+    @State var isOnBoardingViewPresented = false
     @EnvironmentObject var score: ScoreViewModel
     
     @State private var selectedCourseID: CourseScore?
@@ -48,7 +48,7 @@ struct ScoreNavigationStack: View {
                     } actions: {
                         // 2
                         Button("Log In") {
-                            // Go to the movie list.
+                            self.isOnBoardingViewPresented = true
                         }
                         .buttonStyle(.borderedProminent)
                     }
@@ -56,11 +56,14 @@ struct ScoreNavigationStack: View {
             }
         }
         .navigationTitle("Score")
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                AccountButton(isAccountViewPresented: $isAccountViewPresented)
-            }
+        .fullScreenCover(isPresented: $isOnBoardingViewPresented) {
+            OnBoardingView()
         }
+//        .toolbar {
+//            ToolbarItem(placement: .topBarTrailing) {
+//                AccountButton(isAccountViewPresented: $isAccountViewPresented)
+//            }
+//        }
             
     }
 }

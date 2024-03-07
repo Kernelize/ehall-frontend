@@ -95,6 +95,7 @@ struct CourseScore: Codable, Identifiable {
     let gradeType: String
     let semester: String
     let department: String
+    let rank: CourseScoreRank
     
     var id: String {
         courseName
@@ -167,5 +168,86 @@ class Expense {
     
     init(authToken: String) {
         self.authToken = authToken
+    }
+}
+
+extension [CourseScore] {
+    var maxTotalScore: CourseScore? {
+        self.max(by: { $0.totalScore < $1.totalScore })
+    }
+    
+    var courseCount: Int {
+        self.count
+    }
+    
+    var isRetakingCount: Int {
+        self.filter{ $0.isRetake != "初修" }.count
+    }
+    
+    var estimateTotalScore: Float? {
+        if self.isEmpty {
+            return nil
+        }
+        let x = self.reduce(0.0) { $0 + Float($1.gradePoint)! * Float($1.totalScore) }
+        let y = self.reduce(0.0) { $0 + Float($1.gradePoint)! }
+        return x / y
+    }
+    
+    var estimateTotalCredit: Float? {
+        if self.isEmpty {
+            return nil
+        }
+        let x = self.reduce(0.0) { $0 + Float($1.gradePoint)! * $1.credits }
+        let y = self.reduce(0.0) { $0 + Float($1.gradePoint)! }
+        return x / y
+    }
+}
+
+extension CourseScoreRank {
+    var schoolScoreArray: [(Int, Int)] {
+        var x: Array<(Int, Int)> = []
+        x += [
+            (90, self.school.numAbove90),
+            (80, self.school.numAbove80),
+            (70, self.school.numAbove70)
+        ]
+        if let numAbove60 = self.school.numAbove60,
+           let numBelow60 = self.school.numBelow60
+        {
+            x += [
+                (60, numAbove60),
+                (0, numBelow60)
+            ]
+        } else {
+            let n = self.school.totalPeopleNum - (self.school.numAbove90 + self.school.numAbove80 + self.school.numAbove70)
+            x += [(0, n)]
+        }
+        
+        return x
+    }
+    
+    var selfSchoolSection: Int {
+        var rank = self.school.rank
+        rank -= self.school.numAbove90
+        if rank <= 0 {
+            return 90
+        }
+        rank -= self.school.numAbove80
+        if rank <= 0 {
+            return 80
+        }
+        rank -= self.school.numAbove70
+        if rank <= 0 {
+            return 70
+        }
+        if let numAbove60 = self.school.numAbove60,
+           let numBelow60 = self.school.numBelow60
+        {
+            rank -= numAbove60
+            if rank <= 0 {
+                return 60
+            }
+        }
+        return 0
     }
 }

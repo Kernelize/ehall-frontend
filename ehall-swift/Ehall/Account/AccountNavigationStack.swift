@@ -109,7 +109,7 @@ struct AccountNavigationStack: View {
             }, label: {
                 Text("Login")
             })
-            .sheet(isPresented: $showLoginView) {
+            .fullScreenCover(isPresented: $showLoginView) {
                 OnBoardingView()
             }
         }

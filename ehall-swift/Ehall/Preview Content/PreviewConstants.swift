@@ -26,7 +26,8 @@ let PreviewCourseScore = CourseScore(
         credits: 100,
         gradeType: "Unknown",
         semester: "2022-0-0",
-        department: "电气与自动化工程学院"
+        department: "电气与自动化工程学院",
+        rank: PreviewCourseScoreRank
 )
 
 let PreviewCourseScores = [
@@ -49,7 +50,8 @@ let PreviewCourseScores = [
                 credits: 100,
                 gradeType: "Unknown",
                 semester: "2022-0-0",
-                department: "电气与自动化工程学院"
+                department: "电气与自动化工程学院",
+                rank: PreviewCourseScoreRank
         ),
         CourseScore(
                 courseName: "大学物理",
@@ -70,7 +72,8 @@ let PreviewCourseScores = [
                 credits: 100,
                 gradeType: "Unknown",
                 semester: "2022-0-0",
-                department: "电气与自动化工程学院"
+                department: "电气与自动化工程学院",
+                rank: PreviewCourseScoreRank
         ),
         CourseScore(
                 courseName: "品史",
@@ -91,9 +94,12 @@ let PreviewCourseScores = [
                 credits: 100,
                 gradeType: "Unknown",
                 semester: "2022-0-0",
-                department: "电气与自动化工程学院"
+                department: "电气与自动化工程学院",
+                rank: PreviewCourseScoreRank
         )
 ]
+
+let PreviewCourseScoreRank: CourseScoreRank = CourseScoreRank(class: CourseScoreRank.Class(rank: 6, totalPeopleNum: 24, lowScore: 10, highScore: 100, averageScore: 60, numAbove90: 4, numAbove80: 6, numAbove70: 6, numAbove60: 4, numBelow60: 4), school: CourseScoreRank.School(rank: 60, totalPeopleNum: 240, lowScore: 10, highScore: 100, averageScore: 60, numAbove90: 40, numAbove80: 60, numAbove70: 60, numAbove60: 40, numBelow60: 40))
 
 let PreviewEhallDataModel = EhallDataModel.LoggedInWithScore(usernameAndPassword: UsernameAndPassword(username: "21220513", password: "283511"), school: .NanjingNormalUniversity, authToken: "fffff", userInfo: UserInfo(userName: "Hank", userId: "shits", userType: "Student", userDepartment: "体科院", userSex: "Male"), courseScores: PreviewCourseScores)
 

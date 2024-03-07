@@ -10,7 +10,7 @@ import SwiftUI
 enum AppScreen: Codable, Hashable, Identifiable, CaseIterable {
     case home
     case score
-//    case account
+    case account
     
     var id: AppScreen { self }
 }
@@ -23,8 +23,8 @@ extension AppScreen {
             Label("Home", systemImage: "house.fill")
         case .score:
             Label("Score", systemImage: "tray.2.fill")
-//        case .account:
-//            Label("Account", systemImage: "person.crop.circle")
+        case .account:
+            Label("Account", systemImage: "person.crop.circle")
         }
     }
     
@@ -35,8 +35,8 @@ extension AppScreen {
             HomeNavigationStack()
         case .score:
             ScoreNavigationStack()
-//        case .account:
-//            AccountNavigationStack()
+        case .account:
+            AccountNavigationStack()
         }
     }
 }
