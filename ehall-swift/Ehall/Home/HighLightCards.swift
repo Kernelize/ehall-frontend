@@ -18,7 +18,7 @@ struct TotalScoreHighLightCard: View {
                     .foregroundStyle(.secondary)
                 Text(score.courseName)
                     .font(.title2.bold())
-                TotalScoreHighLightCardChart(rank: score.rank)
+                TotalScoreHighLightCardChart(rank: score.courseRank)
                     .frame(height: 100)
             }
         }

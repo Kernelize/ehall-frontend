@@ -10,6 +10,7 @@ import Foundation
 struct CourseScoreRequest: Codable {
     let semester: String
     let amount: Int
+    let isNeedRank: Bool
 }
 
 struct CourseScoreResponse: Codable {

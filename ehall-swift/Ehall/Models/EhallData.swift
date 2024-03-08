@@ -95,7 +95,7 @@ struct CourseScore: Codable, Identifiable {
     let gradeType: String
     let semester: String
     let department: String
-    let rank: CourseScoreRank
+    let courseRank: CourseScoreRank
     
     var id: String {
         courseName
@@ -112,9 +112,9 @@ struct CourseScoreRank: Codable {
         let lowScore: Int
         let highScore: Int
         let averageScore: Int
-        let numAbove90: Int
-        let numAbove80: Int
-        let numAbove70: Int
+        let numAbove90: Int?
+        let numAbove80: Int?
+        let numAbove70: Int?
         let numAbove60: Int?
         let numBelow60: Int?
     }
@@ -125,9 +125,9 @@ struct CourseScoreRank: Codable {
         let lowScore: Int
         let highScore: Int
         let averageScore: Int
-        let numAbove90: Int
-        let numAbove80: Int
-        let numAbove70: Int
+        let numAbove90: Int?
+        let numAbove80: Int?
+        let numAbove70: Int?
         let numAbove60: Int?
         let numBelow60: Int?
     }
@@ -206,48 +206,66 @@ extension [CourseScore] {
 extension CourseScoreRank {
     var schoolScoreArray: [(Int, Int)] {
         var x: Array<(Int, Int)> = []
-        x += [
-            (90, self.school.numAbove90),
-            (80, self.school.numAbove80),
-            (70, self.school.numAbove70)
-        ]
-        if let numAbove60 = self.school.numAbove60,
-           let numBelow60 = self.school.numBelow60
-        {
-            x += [
-                (60, numAbove60),
-                (0, numBelow60)
-            ]
-        } else {
-            let n = self.school.totalPeopleNum - (self.school.numAbove90 + self.school.numAbove80 + self.school.numAbove70)
-            x += [(0, n)]
+        if let numAbove90 = self.school.numAbove90 {
+            x += [(90, numAbove90)]
         }
         
+        if let numAbove80 = self.school.numAbove80 {
+            x += [(80, numAbove80)]
+        }
+        
+        if let numAbove70 = self.school.numAbove70 {
+            x += [(70, numAbove70)]
+        }
+        
+        if let numAbove60 = self.school.numAbove60 {
+            x += [(60, numAbove60)]
+        }
+        
+        if let numBelow60 = self.school.numBelow60 {
+            x += [(0, numBelow60)]
+        }
         return x
     }
     
     var selfSchoolSection: Int {
         var rank = self.school.rank
-        rank -= self.school.numAbove90
-        if rank <= 0 {
+        if let numAbove90 = self.school.numAbove90 {
+            rank -= numAbove90
+            if rank <= 0 {
+                return 90
+            }
+        } else {
             return 90
         }
-        rank -= self.school.numAbove80
-        if rank <= 0 {
+        
+        if let numAbove80 = self.school.numAbove80 {
+            rank -= numAbove80
+            if rank <= 0 {
+                return 80
+            }
+        } else {
             return 80
         }
-        rank -= self.school.numAbove70
-        if rank <= 0 {
+        
+        if let numAbove70 = self.school.numAbove70 {
+            rank -= numAbove70
+            if rank <= 0 {
+                return 70
+            }
+        } else {
             return 70
         }
-        if let numAbove60 = self.school.numAbove60,
-           let numBelow60 = self.school.numBelow60
-        {
+        
+        if let numAbove60 = self.school.numAbove60 {
             rank -= numAbove60
             if rank <= 0 {
                 return 60
             }
+        } else {
+            return 60
         }
+        
         return 0
     }
 }

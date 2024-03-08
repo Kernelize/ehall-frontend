@@ -35,17 +35,21 @@ func requestUserInfo(_ authToken: AuthToken, school: School) async throws -> Use
 }
 
 func requestCourseScore(_ authToken: AuthToken, school: School) async throws -> [CourseScore] {
-    try await requestCourseScore(authToken, school: school, semester: "all", amount: 64)
+    try await requestCourseScore(authToken, school: school, semester: "all", amount: 64, isNeedRank: true)
 }
 
-func requestCourseScore(_ authToken: AuthToken, school: School, semester: String, amount: Int) async throws -> [CourseScore] {
+func requestCourseScore(_ authToken: AuthToken, school: School, semester: String, amount: Int, isNeedRank: Bool) async throws -> [CourseScore] {
     let requestScoreUrl = backendHost + "/" + school.str() + "/user/score"
-    let courseScoreRequest = CourseScoreRequest(semester: semester, amount: amount)
+    let courseScoreRequest = CourseScoreRequest(semester: semester, amount: amount, isNeedRank: isNeedRank)
     var headers: HTTPHeaders = [.accept("application/json")]
     headers.add(.authorization(authToken))
     
-    let response = AF.request(requestScoreUrl, method: .post, parameters: courseScoreRequest, encoder: JSONParameterEncoder.default, headers: headers).serializingDecodable(CourseScoreResponse.self)
-    let courseScoreResponse = try await response.value
+    let response = AF.request(requestScoreUrl, method: .post, parameters: courseScoreRequest, encoder: JSONParameterEncoder.default, headers: headers)
+//    response.responseString { s in
+//        print(s)
+//    }
+    let response1 = response.serializingDecodable(CourseScoreResponse.self)
+    let courseScoreResponse = try await response1.value
     if let courseScores = courseScoreResponse.data {
         return courseScores
     } else {
@@ -91,27 +95,6 @@ struct RequestError: Error {
 import SwiftUI
 import SwiftData
 
-struct TestView: View {
-    var body: some View {
-        VStack {
-            let vs = VStack {
-                if true {
-                    Text("hello")
-                }
-                Rectangle()
-                    .frame(width: 100, height: 100)
-            }
-            Button("get") {
-                Task {
-                    print(Mirror(reflecting: vs).subjectType)
-                    print(rustGreeting(name: "Swift"))
-                    await testLogin()
-                }
-            }
-        }
-    }
-}
-
 func testLogin() async {
     do {
         let p = UsernameAndPassword(username: "21220513", password: "283511")
@@ -130,8 +113,26 @@ func testRequestAuthToken() async -> String? {
     return nil
 }
 
-struct Networking_Previews: PreviewProvider {
-    static var previews: some View {
-        TestView()
+#Preview {
+    struct RequestsPreview: View {
+        var body: some View {
+            VStack {
+                let vs = VStack {
+                    if true {
+                        Text("hello")
+                    }
+                    Rectangle()
+                        .frame(width: 100, height: 100)
+                }
+                Button("get") {
+                    Task {
+                        print(Mirror(reflecting: vs).subjectType)
+                        print(rustGreeting(name: "Swift"))
+                        await testLogin()
+                    }
+                }
+            }
+        }
     }
+    return RequestsPreview()
 }

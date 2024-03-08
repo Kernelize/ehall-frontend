@@ -27,7 +27,7 @@ let PreviewCourseScore = CourseScore(
         gradeType: "Unknown",
         semester: "2022-0-0",
         department: "电气与自动化工程学院",
-        rank: PreviewCourseScoreRank
+        courseRank: PreviewCourseScoreRank
 )
 
 let PreviewCourseScores = [
@@ -51,7 +51,7 @@ let PreviewCourseScores = [
                 gradeType: "Unknown",
                 semester: "2022-0-0",
                 department: "电气与自动化工程学院",
-                rank: PreviewCourseScoreRank
+                courseRank: PreviewCourseScoreRank
         ),
         CourseScore(
                 courseName: "大学物理",
@@ -73,7 +73,7 @@ let PreviewCourseScores = [
                 gradeType: "Unknown",
                 semester: "2022-0-0",
                 department: "电气与自动化工程学院",
-                rank: PreviewCourseScoreRank
+                courseRank: PreviewCourseScoreRank
         ),
         CourseScore(
                 courseName: "品史",
@@ -95,7 +95,7 @@ let PreviewCourseScores = [
                 gradeType: "Unknown",
                 semester: "2022-0-0",
                 department: "电气与自动化工程学院",
-                rank: PreviewCourseScoreRank
+                courseRank: PreviewCourseScoreRank
         )
 ]
 
