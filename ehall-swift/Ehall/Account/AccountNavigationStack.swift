@@ -26,7 +26,7 @@ struct AccountNavigationStack: View {
                 // .frame(maxWidth: .infinity)
                 entryList
                 urlList
-                if score.isAvailabe {
+                if score.isInfoAvailable {
                     logoutButton
                 } else {
                     loginButton

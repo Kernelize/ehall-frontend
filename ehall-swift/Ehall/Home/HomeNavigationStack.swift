@@ -18,7 +18,9 @@ struct HomeNavigationStack: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     NavigationViewHeaderWithImageBlock(date: Date())
-                    highLightsList
+                    if score.isAvailabe {
+                        highLightsList
+                    }
                 }
                 .navigationBarHidden(true)
             }

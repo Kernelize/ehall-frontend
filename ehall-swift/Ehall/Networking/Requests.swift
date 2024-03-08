@@ -45,9 +45,9 @@ func requestCourseScore(_ authToken: AuthToken, school: School, semester: String
     headers.add(.authorization(authToken))
     
     let response = AF.request(requestScoreUrl, method: .post, parameters: courseScoreRequest, encoder: JSONParameterEncoder.default, headers: headers)
-//    response.responseString { s in
-//        print(s)
-//    }
+    response.responseString { s in
+        print(s)
+    }
     let response1 = response.serializingDecodable(CourseScoreResponse.self)
     let courseScoreResponse = try await response1.value
     if let courseScores = courseScoreResponse.data {
