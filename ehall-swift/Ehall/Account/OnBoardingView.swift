@@ -17,6 +17,7 @@ struct OnBoardingView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let button = RiveViewModel(fileName: "button", autoPlay: false)
+//    let button = RiveViewModel(fileName: "button", stateMachineName: "active")
     var body: some View {
         ZStack {
             background
@@ -94,7 +95,7 @@ struct OnBoardingView: View {
             )
             .overlay(
                 Label("Log In", systemImage: "arrow.forward")
-                    .offset(x: 0, y: 4)
+                    .offset(x: -4, y: 1)
                     .font(.headline)
                     .foregroundColor(.primary)
             )
@@ -132,7 +133,7 @@ struct CustomTextField: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(15)
-            .padding(.leading, 36)
+//            .padding(.leading, 36)
             .background(.white)
             .mask(RoundedRectangle(cornerRadius: 10, style: .continuous))
             .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).stroke(lineWidth: 1).fill(.black.opacity(0.1)))

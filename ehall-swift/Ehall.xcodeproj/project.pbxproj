@@ -42,7 +42,6 @@
 		36CD15632B95A539006E2FCC /* PreviewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15622B95A539006E2FCC /* PreviewConstants.swift */; };
 		36CD15652B95A746006E2FCC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CD15642B95A746006E2FCC /* OnBoardingView.swift */; };
 		36CD156E2B95A7B3006E2FCC /* check.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD15672B95A7B2006E2FCC /* check.riv */; };
-		36CD156F2B95A7B3006E2FCC /* button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD15682B95A7B2006E2FCC /* button.riv */; };
 		36CD15702B95A7B3006E2FCC /* confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD15692B95A7B2006E2FCC /* confetti.riv */; };
 		36CD15712B95A7B3006E2FCC /* menu_button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156A2B95A7B2006E2FCC /* menu_button.riv */; };
 		36CD15722B95A7B3006E2FCC /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156B2B95A7B2006E2FCC /* house.riv */; };
@@ -50,6 +49,7 @@
 		36CD15742B95A7B3006E2FCC /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36CD156D2B95A7B2006E2FCC /* shapes.riv */; };
 		36CD157A2B96DF01006E2FCC /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = 36CD15792B96DF01006E2FCC /* Shimmer */; };
 		36D063CC2B98A6FF00DD9382 /* ehall_networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D063CB2B98A6FF00DD9382 /* ehall_networking.swift */; };
+		36D0EBFA2B9B21B100AF86F8 /* button.riv in Resources */ = {isa = PBXBuildFile; fileRef = 36D0EBF92B9B21B000AF86F8 /* button.riv */; };
 		36F94D6D2B905E4100C0C182 /* ehall_networking_framework.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; };
 		36F94D6E2B905E4100C0C182 /* ehall_networking_framework.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36FBF0CC2B793EFC007FF51E /* EhallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FBF0CB2B793EFC007FF51E /* EhallApp.swift */; };
@@ -126,13 +126,13 @@
 		36CD15622B95A539006E2FCC /* PreviewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewConstants.swift; sourceTree = "<group>"; };
 		36CD15642B95A746006E2FCC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		36CD15672B95A7B2006E2FCC /* check.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = check.riv; sourceTree = "<group>"; };
-		36CD15682B95A7B2006E2FCC /* button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.riv; sourceTree = "<group>"; };
 		36CD15692B95A7B2006E2FCC /* confetti.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = confetti.riv; sourceTree = "<group>"; };
 		36CD156A2B95A7B2006E2FCC /* menu_button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu_button.riv; sourceTree = "<group>"; };
 		36CD156B2B95A7B2006E2FCC /* house.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = house.riv; sourceTree = "<group>"; };
 		36CD156C2B95A7B2006E2FCC /* icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.riv; sourceTree = "<group>"; };
 		36CD156D2B95A7B2006E2FCC /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
 		36D063CB2B98A6FF00DD9382 /* ehall_networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ehall_networking.swift; path = "../../../ehall-networking/bindings/swift/ehall_networking.swift"; sourceTree = "<group>"; };
+		36D0EBF92B9B21B000AF86F8 /* button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.riv; sourceTree = "<group>"; };
 		36F94D6C2B905E4100C0C182 /* ehall_networking_framework.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ehall_networking_framework.xcframework; path = "../ehall-networking/ehall_networking_framework.xcframework"; sourceTree = "<group>"; };
 		36F94D7B2B935A1900C0C182 /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
 		36FBF0C82B793EFC007FF51E /* Ehall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ehall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,7 +274,7 @@
 		36CD15662B95A78B006E2FCC /* RiveAssets */ = {
 			isa = PBXGroup;
 			children = (
-				36CD15682B95A7B2006E2FCC /* button.riv */,
+				36D0EBF92B9B21B000AF86F8 /* button.riv */,
 				36CD15672B95A7B2006E2FCC /* check.riv */,
 				36CD15692B95A7B2006E2FCC /* confetti.riv */,
 				36CD156B2B95A7B2006E2FCC /* house.riv */,
@@ -491,9 +491,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CD156E2B95A7B3006E2FCC /* check.riv in Resources */,
-				36CD156F2B95A7B3006E2FCC /* button.riv in Resources */,
 				36CD15712B95A7B3006E2FCC /* menu_button.riv in Resources */,
 				36FBF0D42B793EFE007FF51E /* Preview Assets.xcassets in Resources */,
+				36D0EBFA2B9B21B100AF86F8 /* button.riv in Resources */,
 				36CD15742B95A7B3006E2FCC /* shapes.riv in Resources */,
 				36CD15732B95A7B3006E2FCC /* icons.riv in Resources */,
 				36CD15722B95A7B3006E2FCC /* house.riv in Resources */,
