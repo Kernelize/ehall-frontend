@@ -12,11 +12,7 @@ struct ScoreCardGrid: View {
     let userData: [CourseScore]
     private var filteredUserData: [CourseScore] {
         userData.filter {
-            if searchText != "" {
-                $0.courseName.contains(searchText)
-            } else {
-                true
-            }
+            searchText == "" || $0.courseName.contains(searchText)
         }
     }
 

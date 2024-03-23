@@ -1,7 +1,6 @@
-#  ehall-swift
+#  ehall-frontend
 
-This repo contains Official ehall app for iOS, iPadOS and macOS.
-Minimun requirement is iOS 17.2 && macOS 14.2
+This repo contains Official ehall app for all platforms, including iOS, iPadOS, macOS, tvOS, visionOS, watchOS, Windows, android, web and embedded platforms.
 
 This project is currently usable and is still under active developement.
 
